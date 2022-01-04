@@ -66,7 +66,62 @@
             </div>
         </div>
     </form>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Synopsis</th>
+                        <th scope="col">Genre</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Action</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">Buku1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>1000</td>
+                        <td>
+                            <div class="d-grid gap-2 d-md-block">
+                                <button class="btn btn-primary" type="button">Button</button>
+                                <button class="btn btn-primary" type="button">Button</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Buku2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        <td>1000</td>
+                        <td>
+                            <div class="d-grid gap-2 d-md-block">
+                                <button class="btn btn-primary" type="button">Button</button>
+                                <button class="btn btn-primary" type="button">Button</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Buku3</th>
+                        <td>Larry</td>
+                        <td>Bird</td>
+                        <td>@twitter</td>
+                        <td>1000</td>
+                        <td>
+                            <div class="d-grid gap-2 d-md-block">
+                                <button class="btn btn-primary" type="button">Button</button>
+                                <button class="btn btn-primary" type="button">Button</button>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
+
         </div>
     </div>
 
