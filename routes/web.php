@@ -19,3 +19,6 @@ Route::get('/', function () {
 Route::get('/manage_books', function () {
     return view('manage_book');
 });
+Route::get('/manage_genre', function () {
+    return view('manage_genre');
+});
