@@ -23,11 +23,14 @@ Route::get('/register', function () {
     return view('register');
 });
 Route::get('/manage_books', function () {
-    return view('manage_book');
+    return view('Admin/manage_book');
 });
 Route::get('/manage_genre', function () {
-    return view('manage_genre');
+    return view('Admin/manage_genre');
 });
 Route::get('/manage_user', function () {
-    return view('manage_user');
+    return view('Admin/manage_user');
+});
+Route::get('/manage_user/user_detail', function () {
+    return view('Admin/member_user_detail');
 });

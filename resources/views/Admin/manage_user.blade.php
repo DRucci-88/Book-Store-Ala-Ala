@@ -33,7 +33,7 @@
                                 <td>Member</td>
                                 <td>
                                     <div class="d-grid gap-2 d-md-block">
-                                        <button class="btn btn-secondary" type="button">View Detail</button>
+                                        <button class="btn btn-secondary" type="button" >View Detail</button>
                                         <button class="btn btn-danger" type="button">Delete</button>
                                     </div>
                                 </td>
