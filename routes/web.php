@@ -28,3 +28,6 @@ Route::get('/manage_books', function () {
 Route::get('/manage_genre', function () {
     return view('manage_genre');
 });
+Route::get('/manage_user', function () {
+    return view('manage_user');
+});
