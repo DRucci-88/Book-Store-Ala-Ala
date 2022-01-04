@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="container my-5">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-11">
                 <form class="d-flex justify-content-between mb-3">
