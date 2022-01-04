@@ -23,7 +23,7 @@
                         <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownAccount" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Hello, Admin
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownAccount">
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownAccount">
                             <li><a class="dropdown-item" href="#">Profile</a></li>
                             <li><a class="dropdown-item" href="#">Log out</a></li>
                         </ul>
