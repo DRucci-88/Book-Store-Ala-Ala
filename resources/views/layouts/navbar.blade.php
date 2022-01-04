@@ -12,7 +12,7 @@
                             Manage
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownManage">
-                            <li><a class="dropdown-item" href="#">Books</a></li>
+                            <li><a class="dropdown-item" href="/manage_books">Books</a></li>
                             <li><a class="dropdown-item" href="#">Genre</a></li>
                             <li><a class="dropdown-item" href="#">User</a></li>
                         </ul>
