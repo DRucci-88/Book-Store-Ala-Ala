@@ -5,6 +5,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <!-- Admin Navbar -->
             <ul class="navbar-nav ms-auto">
                 <div class="btn-group">
                     <li class="nav-item dropdown">
@@ -12,9 +13,9 @@
                             Manage
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownManage">
-                            <li><a class="dropdown-item" href="/manage_books">Books</a></li>
-                            <li><a class="dropdown-item" href="/manage_genre">Genre</a></li>
-                            <li><a class="dropdown-item" href="/manage_user">User</a></li>
+                            <li><a class="dropdown-item" href="/book">Book</a></li>
+                            <li><a class="dropdown-item" href="/genre">Genre</a></li>
+                            <li><a class="dropdown-item" href="/user">User</a></li>
                         </ul>
                     </li>
                 </div>
@@ -24,9 +25,42 @@
                             Hello, Admin
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownAccount">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li><a class="dropdown-item" href="#">Log out</a></li>
+                            <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                            <li><a class="dropdown-item" href="/logout">Log out</a></li>
                         </ul>
+                    </li>
+                </div>
+            </ul>
+
+            <!-- Member Navbar -->
+            <ul class="navbar-nav ms-auto">
+                <div class="btn-group">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/cart">View Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/history">View Transaction History</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownAccount" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Hello, Member
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownAccount">
+                            <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                            <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                        </ul>
+                    </li>
+                </div>
+            </ul>
+            
+            <!-- Guest Navbar -->
+            <ul class="navbar-nav ms-auto">
+                <div class="btn-group">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/register">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/login">Login</a>
                     </li>
                 </div>
             </ul>

@@ -22,15 +22,21 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('register');
 });
-Route::get('/manage_books', function () {
+Route::get('/book', function () {
     return view('Admin/manage_book');
 });
-Route::get('/manage_genre', function () {
+Route::get('/book/id', function () {
+    return view('Admin/book_detail');
+});
+Route::get('/genre', function () {
     return view('Admin/manage_genre');
 });
-Route::get('/manage_user', function () {
+Route::get('/genre/id', function () {
+    return view('Admin/genre_detail');
+});
+Route::get('/user', function () {
     return view('Admin/manage_user');
 });
-Route::get('/manage_user/user_detail', function () {
-    return view('Admin/member_user_detail');
+Route::get('/user/id', function () {
+    return view('Admin/user_detail');
 });

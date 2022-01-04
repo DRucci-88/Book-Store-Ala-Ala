@@ -8,7 +8,7 @@
                 <form>
                     <div class="card">
                         <div class="card-body">
-                            <h3>Insert Book Form</h3>
+                            <h3>Asdfghjkl's Book Detail</h3>
                             <div class="row mb-3">
                                 <label class="col-sm-6 col-form-label">Name</label>
                                 <div class="col-sm-6">
@@ -105,63 +105,10 @@
                                     <input type="file" class="form-control" name="cover">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary col-sm-4">Insert</button>
+                            <button type="submit" class="btn btn-primary col-sm-4">Update</button>
                         </div>
                     </div>
                 </form>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Author</th>
-                            <th scope="col">Synopsis</th>
-                            <th scope="col">Genre</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Buku1</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>IDR 1000</td>
-                            <td>
-                                <div class="d-grid gap-2 d-md-block">
-                                    <button class="btn btn-secondary" type="button">View Detail</button>
-                                    <button class="btn btn-danger" type="button">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Buku2</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>IDR 1000</td>
-                            <td>
-                                <div class="d-grid gap-2 d-md-block">
-                                    <button class="btn btn-secondary" type="button">View Detail</button>
-                                    <button class="btn btn-danger" type="button">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Buku3</td>
-                            <td>Larry</td>
-                            <td>Bird</td>
-                            <td>@twitter</td>
-                            <td>IDR 1000</td>
-                            <td>
-                                <div class="d-grid gap-2 d-md-block">
-                                    <button class="btn btn-secondary" type="button">View Detail</button>
-                                    <button class="btn btn-danger" type="button">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>
