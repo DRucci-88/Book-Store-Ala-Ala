@@ -40,3 +40,9 @@ Route::get('/user', function () {
 Route::get('/user/id', function () {
     return view('Admin/user_detail');
 });
+Route::get('/history', function () {
+    return view('/history');
+});
+Route::get('/history/detail', function () {
+    return view('/history_detail');
+});
