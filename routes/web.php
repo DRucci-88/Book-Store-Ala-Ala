@@ -52,3 +52,9 @@ Route::get('/history', function () {
 Route::get('/history/detail', function () {
     return view('/history_detail');
 });
+Route::get('/profile', function () {
+    return view('/profile');
+});
+Route::get('/profile/password', function () {
+    return view('/password');
+});
