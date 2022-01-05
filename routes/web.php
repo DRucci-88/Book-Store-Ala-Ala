@@ -23,20 +23,26 @@ Route::get('/register', function () {
     return view('register');
 });
 Route::get('/book', function () {
-    return view('Admin/manage_book');
+    return view('admin/manage_book');
 });
 Route::get('/book/id', function () {
-    return view('Admin/book_detail');
+    return view('admin/book_detail');
 });
 Route::get('/genre', function () {
-    return view('Admin/manage_genre');
+    return view('admin/manage_genre');
 });
 Route::get('/genre/id', function () {
-    return view('Admin/genre_detail');
+    return view('admin/genre_detail');
 });
 Route::get('/user', function () {
-    return view('Admin/manage_user');
+    return view('admin/manage_user');
 });
 Route::get('/user/id', function () {
-    return view('Admin/user_detail');
+    return view('admin/user_detail');
+});
+Route::get('/cart', function () {
+    return view('member/cart');
+});
+Route::get('/cart/id', function () {
+    return view('member/edit_cart');
 });

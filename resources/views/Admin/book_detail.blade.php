@@ -101,7 +101,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-6 col-form-label">Cover</label>
                                 <div class="col-sm-6">
-                                    <img class="img-thumbnail" src="..." alt="Book Title Cover">
+                                    <img class="img-fluid mb-3" src="/books/top_one.jpg" alt="Book Title Cover">
                                     <input type="file" class="form-control" name="cover">
                                 </div>
                             </div>
