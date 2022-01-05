@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <p class="col-sm-4">Price</p>
-                                    <p class="col-sm-8">IDR</p>
+                                    <p class="col-sm-8">IDR 50000</p>
                                 </div>
                                 <form class="row justify-content-between">
                                     <div class="col-sm-4">
@@ -41,7 +41,7 @@
                                         </div>
                                     </div>
                                     <div class="col-sm text-end">
-                                        <button type="submit" class="btn btn-primary">Update</button>
+                                        <button type="submit" class="btn btn-primary">AddToCart/Update</button>
                                     </div>
                                 </form>
                             </div>

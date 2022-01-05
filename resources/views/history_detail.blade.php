@@ -24,7 +24,7 @@
                         <td>IDR 58800</td>
                         <td>
                             <div class="d-grid gap-2 d-md-block">
-                                <a class="btn btn-secondary" href="">View book Detail</a>
+                                <a class="btn btn-secondary" href="">View Book Detail</a>
                             </div>
                         </td>
                     </tr>
@@ -36,7 +36,7 @@
                         <td>IDR 175300</td>
                         <td>
                             <div class="d-grid gap-2 d-md-block">
-                                <a class="btn btn-secondary" href="">View book Detail</a>
+                                <a class="btn btn-secondary" href="">View Book Detail</a>
                             </div>
                         </td>
                     </tr>
@@ -44,11 +44,11 @@
                         <td>Harry Potter series</td>
                         <td>J.K. Rowling</td>
                         <td>IDR 73700</td>
-                        <td>2 book</td>
+                        <td>2 books</td>
                         <td>IDR 147400</td>
                         <td>
                             <div class="d-grid gap-2 d-md-block">
-                                <a class="btn btn-secondary" href="">View book Detail</a>
+                                <a class="btn btn-secondary" href="">View Book Detail</a>
                             </div>
                         </td>
                     </tr>
