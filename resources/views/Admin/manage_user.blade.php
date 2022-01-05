@@ -20,8 +20,7 @@
                             <td>Admin</td>
                             <td>
                                 <div class="d-grid gap-2 d-md-block">
-                                    <button class="btn btn-secondary" type="button">View Detail</button>
-
+                                    <a href="#" class="btn btn-secondary">View Detail</a>
                                 </div>
                             </td>
                         </tr>
@@ -31,8 +30,8 @@
                             <td>Member</td>
                             <td>
                                 <div class="d-grid gap-2 d-md-block">
-                                    <button class="btn btn-secondary" type="button" >View Detail</button>
-                                    <button class="btn btn-danger" type="button">Delete</button>
+                                    <a href="#" class="btn btn-secondary">View Detail</a>
+                                    <a href="#" class="btn btn-danger">Delete</a>
                                 </div>
                             </td>
                         </tr>
