@@ -25,8 +25,14 @@ Route::get('/register', function () {
 Route::get('/book', function () {
     return view('admin/manage_book');
 });
-Route::get('/book/id', function () {
+Route::get('/book/id/admin', function () {
     return view('admin/book_detail');
+});
+Route::get('/book/id/member', function () {
+    return view('member/book_detail');
+});
+Route::get('/book/id/guest', function () {
+    return view('book_detail');
 });
 Route::get('/genre', function () {
     return view('admin/manage_genre');
@@ -47,14 +53,14 @@ Route::get('/cart/id', function () {
     return view('member/edit_cart');
 });
 Route::get('/history', function () {
-    return view('/history');
+    return view('member/history');
 });
-Route::get('/history/detail', function () {
-    return view('/history_detail');
+Route::get('/history/id', function () {
+    return view('member/history_detail');
 });
 Route::get('/profile', function () {
-    return view('/profile');
+    return view('member/profile');
 });
 Route::get('/profile/password', function () {
-    return view('/password');
+    return view('member/password');
 });

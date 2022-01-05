@@ -18,7 +18,7 @@
                         <td>Tue, January 4, 2022 2:55 PM</td>
                         <td>
                             <div class="d-grid gap-2 d-md-block">
-                                <a class="btn btn-secondary" href="/history/detail">View Transaction Detail</a>
+                                <a class="btn btn-secondary" href="/transaction/detail">View Transaction Detail</a>
 
                             </div>
                         </td>
@@ -28,7 +28,7 @@
                         <td>Tue, January 4, 2022 2:55 PM</td>
                         <td>
                             <div class="d-grid gap-2 d-md-block">
-                                <a class="btn btn-secondary" href="/history/detail">View Transaction Detail</a>
+                                <a class="btn btn-secondary" href="/transaction/detail">View Transaction Detail</a>
                             </div>
                         </td>
                     </tr>

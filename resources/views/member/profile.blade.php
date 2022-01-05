@@ -12,17 +12,17 @@
                             <div class="row mb-3">
                                 <label class="col-sm-6 col-form-label">Name</label>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" name="name" placeholder="Member">
+                                    <input type="text" class="form-control" name="name" placeholder="MemberNameInDB">
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-sm-6 col-form-label">Author</label>
+                                <p class="col-sm-6 col-form-label">Email</p>
                                 <div class="col-sm-6">
-                                    <label  name="author"> Member@gmail.com</label>
+                                    <p class="col-form-label">memberemailindb@gmail.com</p>
                                 </div>
                             </div>
                             <div class="d-grid gap-2 d-md-block">
-                                <a href="#" class="btn btn-primary">Update</a>
+                                <button type="submit" class="btn btn-primary">Update</button>
                                 <a href="/profile/password" class="btn btn-primary">Change Password</a>
                             </div>
                         </div>

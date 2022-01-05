@@ -24,7 +24,7 @@
                         <td>IDR 58800</td>
                         <td>
                             <div class="d-grid gap-2 d-md-block">
-                                <a class="btn btn-secondary" href="">View Book Detail</a>
+                                <a class="btn btn-secondary" href="/book/id">View Book Detail</a>
                             </div>
                         </td>
                     </tr>
@@ -36,7 +36,7 @@
                         <td>IDR 175300</td>
                         <td>
                             <div class="d-grid gap-2 d-md-block">
-                                <a class="btn btn-secondary" href="">View Book Detail</a>
+                                <a class="btn btn-secondary" href="/book/id">View Book Detail</a>
                             </div>
                         </td>
                     </tr>
@@ -48,13 +48,13 @@
                         <td>IDR 147400</td>
                         <td>
                             <div class="d-grid gap-2 d-md-block">
-                                <a class="btn btn-secondary" href="">View Book Detail</a>
+                                <a class="btn btn-secondary" href="/book/id">View Book Detail</a>
                             </div>
                         </td>
                     </tr>
                     </tbody>
                 </table>
-                <p>Grand Total: IDR 381500</p>
+                <h6 class="mb-3">Grand Total: IDR 299900</h6>
             </div>
         </div>
     </div>
