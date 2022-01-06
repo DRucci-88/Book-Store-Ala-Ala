@@ -11,8 +11,10 @@ class Book extends Model
 {
     use HasFactory;
 
-    public function genres(): HasMany
+//    protected $primaryKey = 'id';
+
+    public function genres(): BelongsToMany
     {
-        return $this->HasMany(BookGenre::class);
+        return $this->belongsToMany(Genre::class, 'book_genre');
     }
 }

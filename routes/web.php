@@ -14,11 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/a', function (){
-//    $a = Book::all()->find(1);
-//    $a->
-//    return "";
-//});
+Route::get('/a', function (){
+    $a = Book::all();
+    return view('test',[
+        'test' => $a
+    ]);
+});
 
 Route::get('/', function () {
     return view('index');

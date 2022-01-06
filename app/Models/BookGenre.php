@@ -10,6 +10,5 @@ class BookGenre extends Pivot
 {
     use HasFactory;
 
-    public $timestamps = false;
-
+    public $timestamps  = false;
 }
