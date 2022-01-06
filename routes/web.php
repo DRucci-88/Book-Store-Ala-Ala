@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Models\Book;
 use App\Models\Receipt;
 use App\Models\Role;
@@ -87,3 +88,11 @@ Route::get('/profile', function () {
 Route::get('/profile/password', function () {
     return view('member/password');
 });
+
+
+Route::get('/login', [AuthController::class, 'index'])->name('login');
+Route::post('/login', [AuthController::class, 'authenticate']);
+Route::post('/logout', [AuthController::class, 'logout']);
+
+Route::get('/register', [AuthController::class, 'register']);
+Route::post('/register', [AuthController::class, 'store']);
