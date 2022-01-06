@@ -26,7 +26,12 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownAccount">
                             <li><a class="dropdown-item" href="/profile">Profile</a></li>
-                            <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                            <li>
+                                <form action="/logout" method="POST">
+                                    @csrf
+                                    <button class="dropdown-item" type="submit">Log out</button>
+                                </form>
+                            </li>
                         </ul>
                     </li>
                 </div>
