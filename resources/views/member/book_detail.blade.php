@@ -33,11 +33,11 @@
                                     <p class="col-sm-4">Price</p>
                                     <p class="col-sm-8">IDR 50000</p>
                                 </div>
-                                <form class="row justify-content-between">
+                                <form action="/cart/{item_id}" class="row justify-content-between">
                                     <div class="col-sm-4">
                                         <div class="input-group">
                                             <span class="input-group-text">Quantity</span>
-                                            <input type="number" class="form-control" placeholder="1">
+                                            <input type="number" class="form-control" name="quantity" placeholder="1">
                                         </div>
                                     </div>
                                     <div class="col-sm text-end">

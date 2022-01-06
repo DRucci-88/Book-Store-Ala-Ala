@@ -7,7 +7,7 @@
             <div class="col-md-11">
                 <div class="card">
                     <div class="card-body">
-                        <form>
+                        <form action="/user/{user_id}">
                             <h3>Member's User Detail</h3>
                             <div class="row mb-3">
                                 <label class="col-sm-6 col-form-label">Name</label>

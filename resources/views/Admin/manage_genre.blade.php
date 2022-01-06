@@ -5,14 +5,14 @@
     <div class="container my-5 flex-fill">
         <div class="row justify-content-center">
             <div class="col-md-11">
-                <form>
+                <form action="/genre" method="POST">
                     <div class="card">
                         <div class="card-body">
                             <h3>Insert Genre Form</h3>
                             <div class="row mb-3">
                                 <label class="col-sm-6 col-form-label">Name</label>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="name">
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary col-sm-4">Insert</button>

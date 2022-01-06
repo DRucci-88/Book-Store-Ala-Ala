@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-11">
-                <form class="d-flex justify-content-between mb-3">
+                <form action="/" class="d-flex justify-content-between mb-3">
                     <input type="text" class="form-control me-3" name="search">
                     <button type="submit" class="btn btn-primary">Search</button>
                 </form>

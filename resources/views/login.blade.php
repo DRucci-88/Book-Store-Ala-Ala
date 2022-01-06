@@ -3,16 +3,17 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <form class="card shadow col-sm-4">
+            <form action="/login" method="POST" class="card shadow col-sm-4">
+                @csrf
                 <div class="card-body">
                     <h2 class="mb-3">Login</h2>
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="bi-envelope"></i></span>
-                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="email" class="form-control" name="email" placeholder="Email">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="bi-lock"></i></span>
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="password" class="form-control" name="password" placeholder="Password">
                     </div>
                     <div class="input-group mb-3">
                         <div class="form-check">

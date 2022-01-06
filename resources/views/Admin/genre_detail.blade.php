@@ -7,12 +7,12 @@
             <div class="col-md-11">
                 <div class="card">
                     <div class="card-body">
-                        <form>
+                        <form action="/genre/{genre_id}">
                             <h3>Novel's Genre Detail</h3>
                             <div class="row mb-3">
                                 <label class="col-sm-6 col-form-label">Name</label>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="name">
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary col-sm-4">Update</button>

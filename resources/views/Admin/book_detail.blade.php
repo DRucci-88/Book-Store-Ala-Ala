@@ -5,7 +5,7 @@
     <div class="container my-5 flex-fill">
         <div class="row justify-content-center">
             <div class="col-md-11">
-                <form>
+                <form action="/book/{book_id}">
                     <div class="card">
                         <div class="card-body">
                             <h3>Asdfghjkl's Book Detail</h3>
@@ -32,39 +32,19 @@
                                 <div class="row col-sm-6">
                                     <div class="col-sm-4">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="valueOfCheckbox">
+                                            <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
                                             <label class="form-check-label" for="gridCheck1">
                                                 Example checkbox
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="valueOfCheckbox">
+                                            <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
                                             <label class="form-check-label" for="gridCheck1">
                                                 Example checkbox
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="valueOfCheckbox">
-                                            <label class="form-check-label" for="gridCheck1">
-                                                Example checkbox
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="valueOfCheckbox">
-                                            <label class="form-check-label" for="gridCheck1">
-                                                Example checkbox
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="valueOfCheckbox">
-                                            <label class="form-check-label" for="gridCheck1">
-                                                Example checkbox
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="valueOfCheckbox">
+                                            <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
                                             <label class="form-check-label" for="gridCheck1">
                                                 Example checkbox
                                             </label>
@@ -72,19 +52,39 @@
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="valueOfCheckbox">
+                                            <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
                                             <label class="form-check-label" for="gridCheck1">
                                                 Example checkbox
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="valueOfCheckbox">
+                                            <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
                                             <label class="form-check-label" for="gridCheck1">
                                                 Example checkbox
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="valueOfCheckbox">
+                                            <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
+                                            <label class="form-check-label" for="gridCheck1">
+                                                Example checkbox
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
+                                            <label class="form-check-label" for="gridCheck1">
+                                                Example checkbox
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
+                                            <label class="form-check-label" for="gridCheck1">
+                                                Example checkbox
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
                                             <label class="form-check-label" for="gridCheck1">
                                                 Example checkbox
                                             </label>

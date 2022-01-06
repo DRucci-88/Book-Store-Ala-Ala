@@ -5,7 +5,8 @@
     <div class="container my-5 flex-fill">
         <div class="row justify-content-center">
             <div class="col-md-11">
-                <form>
+                <form action="/user/{user_id}">
+                    @csrf
                     <div class="card">
                         <div class="card-body">
                             <h3>Profile</h3>
