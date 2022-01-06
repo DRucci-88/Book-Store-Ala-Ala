@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Models\Book;
 use Illuminate\Support\Facades\Route;
 
