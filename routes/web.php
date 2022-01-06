@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Book;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//Route::get('/a', function (){
+//    $a = Book::all()->find(1);
+//    $a->
+//    return "";
+//});
 
 Route::get('/', function () {
     return view('index');
