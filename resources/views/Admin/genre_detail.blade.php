@@ -7,7 +7,9 @@
             <div class="col-md-11">
                 <div class="card">
                     <div class="card-body">
-                        <form action="/genre/{genre_id}">
+                        <form action="/genre/{genre_id}" method="POST">
+                            @csrf
+                            @method('PUT')
                             <h3>Novel's Genre Detail</h3>
                             <div class="row mb-3">
                                 <label class="col-sm-6 col-form-label">Name</label>
@@ -29,25 +31,25 @@
                                 <tr>
                                     <td>Book1</td>
                                     <td>
-                                        <button class="btn btn-secondary" type="button">View Book Detail</button>
+                                        <a href="/book/{book_id}" class="btn btn-secondary">View Book Detail</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Book2</td>
                                     <td>
-                                        <button class="btn btn-secondary" type="button">View Book Detail</button>
+                                        <a href="/book/{book_id}" class="btn btn-secondary">View Book Detail</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Book3</td>
                                     <td>
-                                        <button class="btn btn-secondary" type="button">View Book Detail</button>
+                                        <a href="/book/{book_id}" class="btn btn-secondary">View Book Detail</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Book4</td>
                                     <td>
-                                        <button class="btn btn-secondary" type="button">View Book Detail</button>
+                                        <a href="/book/{book_id}" class="btn btn-secondary">View Book Detail</a>
                                     </td>
                                 </tr>
                             </tbody>

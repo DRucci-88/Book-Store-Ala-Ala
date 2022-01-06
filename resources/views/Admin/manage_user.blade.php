@@ -20,7 +20,7 @@
                             <td>Admin</td>
                             <td>
                                 <div class="d-grid gap-2 d-md-block">
-                                    <a href="#" class="btn btn-secondary">View Detail</a>
+                                    <a href="/user/{user_id}" class="btn btn-secondary">View Detail</a>
                                 </div>
                             </td>
                         </tr>
@@ -30,8 +30,12 @@
                             <td>Member</td>
                             <td>
                                 <div class="d-grid gap-2 d-md-block">
-                                    <a href="#" class="btn btn-secondary">View Detail</a>
-                                    <a href="#" class="btn btn-danger">Delete</a>
+                                    <a href="/user/{user_id}" class="btn btn-secondary">View Detail</a>
+                                    <form action="/user/{user_id}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit">Delete</button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>

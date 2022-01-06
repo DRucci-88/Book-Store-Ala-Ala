@@ -8,6 +8,8 @@
                 <div class="card">
                     <div class="card-body">
                         <form action="/user/{user_id}">
+                            @csrf
+                            @method('PUT')
                             <h3>Member's User Detail</h3>
                             <div class="row mb-3">
                                 <label class="col-sm-6 col-form-label">Name</label>

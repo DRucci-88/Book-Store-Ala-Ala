@@ -6,6 +6,7 @@
         <div class="row justify-content-center">
             <div class="col-md-11">
                 <form action="/genre" method="POST">
+                    @csrf
                     <div class="card">
                         <div class="card-body">
                             <h3>Insert Genre Form</h3>
@@ -28,29 +29,41 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Buku1</td>
+                            <td>Genre1</td>
                             <td>
                                 <div class="d-grid gap-2 d-md-block">
-                                    <a href="#" class="btn btn-secondary">View Detail</a>
-                                    <a href="#" class="btn btn-danger">Delete</a>
+                                    <a href="/genre/{genre_id}" class="btn btn-secondary">View Detail</a>
+                                    <form action="/genre/{genre_id}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit">Delete</button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <td>Buku2</td>
+                            <td>Genre2</td>
                             <td>
                                 <div class="d-grid gap-2 d-md-block">
-                                    <a href="#" class="btn btn-secondary">View Detail</a>
-                                    <a href="#" class="btn btn-danger">Delete</a>
+                                    <a href="/genre/{genre_id}" class="btn btn-secondary">View Detail</a>
+                                    <form action="/genre/{genre_id}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit">Delete</button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <td>Buku3</td>
+                            <td>Genre3</td>
                             <td>
                                 <div class="d-grid gap-2 d-md-block">
-                                    <a href="#" class="btn btn-secondary">View Detail</a>
-                                    <a href="#" class="btn btn-danger">Delete</a>
+                                    <a href="/book/{book_id}" class="btn btn-secondary">View Detail</a>
+                                    <form action="/book/{book_id}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit">Delete</button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>

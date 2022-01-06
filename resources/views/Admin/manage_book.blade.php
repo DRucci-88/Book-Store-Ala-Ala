@@ -6,6 +6,7 @@
         <div class="row justify-content-center">
             <div class="col-md-11">
                 <form action="/book" method="POST">
+                    @csrf
                     <div class="card">
                         <div class="card-body">
                             <h3>Insert Book Form</h3>
@@ -129,8 +130,12 @@
                             <td>IDR 1000</td>
                             <td>
                                 <div class="d-grid gap-2 d-md-block">
-                                    <a href="#" class="btn btn-secondary">View Detail</a>
-                                    <a href="#" class="btn btn-danger">Delete</a>
+                                    <a href="/book/{book_id}" class="btn btn-secondary">View Detail</a>
+                                    <form action="/book/{book_id}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit">Delete</button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>
@@ -142,8 +147,12 @@
                             <td>IDR 1000</td>
                             <td>
                                 <div class="d-grid gap-2 d-md-block">
-                                    <a href="#" class="btn btn-secondary">View Detail</a>
-                                    <a href="#" class="btn btn-danger">Delete</a>
+                                    <a href="/book/{book_id}" class="btn btn-secondary">View Detail</a>
+                                    <form action="/book/{book_id}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit">Delete</button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>
@@ -155,8 +164,12 @@
                             <td>IDR 1000</td>
                             <td>
                                 <div class="d-grid gap-2 d-md-block">
-                                    <a href="#" class="btn btn-secondary">View Detail</a>
-                                    <a href="#" class="btn btn-danger">Delete</a>
+                                    <a href="/book/{book_id}" class="btn btn-secondary">View Detail</a>
+                                    <form action="/book/{book_id}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit">Delete</button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>

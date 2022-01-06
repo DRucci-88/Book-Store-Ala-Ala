@@ -5,7 +5,9 @@
     <div class="container my-5 flex-fill">
         <div class="row justify-content-center">
             <div class="col-md-11">
-                <form action="/book/{book_id}">
+                <form action="/book/{book_id}" method="POST">
+                    @csrf
+                    @method('PUT')
                     <div class="card">
                         <div class="card-body">
                             <h3>Asdfghjkl's Book Detail</h3>
