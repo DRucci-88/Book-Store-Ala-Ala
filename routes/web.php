@@ -1,47 +1,17 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Models\Book;
-use App\Models\Receipt;
-use App\Models\Role;
-use App\Models\User;
-use App\Models\Genre;
-use App\Models\Transaction;
+use App\Http\Controllers\TestingController;
+use App\Http\Controllers\HomeController;
+
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/a', function () {
-    $transactions = Transaction::all();
-    $receipts = Receipt::all();
-    $roles = Role::all();
-    $users = User::all();
-    $genres = Genre::all();
-    $books = Book::all();
-    return view('test', [
-        'transactions' => $transactions,
-        'receipts' => $receipts,
-        'roles' => $roles,
-        'users' => $users,
-        'genres' => $genres,
-        'books' => $books
-    ]);
-});
-
+// Testing Development
+Route::get('/modelTesting', [TestingController::class,'modelTesting']);
 
 /* All Users */
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [HomeController::class,'index']);
+
 /* Book details page is separated based on user */
 /* End of All Users */
 

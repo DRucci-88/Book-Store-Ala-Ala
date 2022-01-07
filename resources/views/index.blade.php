@@ -5,7 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-11">
                 <form action="/" class="d-flex justify-content-between mb-3">
-                    <input type="text" class="form-control me-3" name="search">
+                    <label>
+                        <input type="text" class="form-control me-3" name="search">
+                    </label>
                     <button type="submit" class="btn btn-primary">Search</button>
                 </form>
                 <button onclick="clearFilter()" class="btn btn-primary">Clear Filter</button>
