@@ -18,7 +18,7 @@ class AuthController extends Controller
     // Show login form
     public function login()
     {
-        return view('login');
+        return view('auth.login');
     }
 
     // Handle login authentication
@@ -34,13 +34,13 @@ class AuthController extends Controller
             return redirect()->intended('/');
         }
 
-        return back()->withErrors('errorMessage', 'Login failed. Please try again.');
+        return back()->with('errorMessage', 'Login failed. Please try again.');
     }
 
     // Show register form
     public function register()
     {
-        return view('register');
+        return view('auth.register');
     }
 
     // Handle user registration
