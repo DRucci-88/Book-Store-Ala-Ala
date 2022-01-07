@@ -7,15 +7,15 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 // Testing Development
-Route::get('/modelTesting', [TestingController::class, 'modelTesting']);
+Route::get('/modelTesting', [TestingController::class,'modelTesting']);
 
 /* All Users */
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class,'index']);
 
 /* Book details page is separated based on user */
 /* End of All Users */
 
-/* Authenticated Users (Admin & Member) */
+/* Authenticated Users (admin & Member) */
 Route::get('/profile', function () {
     return view('member/profile');
 });
@@ -23,10 +23,10 @@ Route::get('/profile/password', function () {
     return view('member/password');
 });
 
-Route::post('/logout', [AuthController::class, 'logout']);
+Route::post('/logout', [AuthController::class, 'store']);
 /* End of Authenticated Users */
 
-/* Admin */
+/* admin */
 Route::get('/book', function () {
     return view('admin/manage_book');
 });
@@ -47,7 +47,7 @@ Route::get('/user', function () {
 Route::get('/user/id', function () {
     return view('admin/user_detail');
 });
-/* End of Admin */
+/* End of admin */
 
 /* Member */
 Route::get('/book/id/member', function () {

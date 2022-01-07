@@ -5,7 +5,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <!-- Admin Navbar -->
+            <!-- admin Navbar -->
             <ul class="navbar-nav ms-auto">
                 <div class="btn-group">
                     <li class="nav-item dropdown">
