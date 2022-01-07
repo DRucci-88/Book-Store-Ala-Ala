@@ -24,9 +24,6 @@ class AuthController extends Controller
     // Handle login authentication
     public function authenticate(Request $request)
     {
-
-//        dd($request->input());
-
         $credentials = $request->validate([
             'email' => ['required'],
             'password' => ['required']
@@ -34,7 +31,6 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-//            dd(Auth()::user());
             return redirect()->intended('/');
         }
 

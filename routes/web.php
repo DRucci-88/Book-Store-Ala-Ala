@@ -7,10 +7,10 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 // Testing Development
-Route::get('/modelTesting', [TestingController::class,'modelTesting']);
+Route::get('/modelTesting', [TestingController::class, 'modelTesting']);
 
 /* All Users */
-Route::get('/', [HomeController::class,'index']);
+Route::get('/', [HomeController::class, 'index']);
 
 /* Book details page is separated based on user */
 /* End of All Users */
@@ -23,7 +23,7 @@ Route::get('/profile/password', function () {
     return view('member/password');
 });
 
-Route::post('/logout', [AuthController::class, 'store']);
+Route::post('/logout', [AuthController::class, 'logout']);
 /* End of Authenticated Users */
 
 /* Admin */

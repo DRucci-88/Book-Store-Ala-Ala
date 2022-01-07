@@ -11,7 +11,15 @@ class Book extends Model
 {
     use HasFactory;
 
-//    protected $primaryKey = 'id';
+    //    protected $primaryKey = 'id';
+
+    public function scopeFilter($query, $search)
+    {
+        $query->when($search ?? false, function ($query, $search) {
+            $keyword = '%' . $search . '%';
+            return $query->where('name', 'LIKE', $keyword);
+        });
+    }
 
     public function genres(): BelongsToMany
     {
