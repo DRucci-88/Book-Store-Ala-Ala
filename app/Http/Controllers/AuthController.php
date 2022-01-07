@@ -24,6 +24,9 @@ class AuthController extends Controller
     // Handle login authentication
     public function authenticate(Request $request)
     {
+
+//        dd($request->input());
+
         $credentials = $request->validate([
             'email' => ['required'],
             'password' => ['required']
@@ -31,10 +34,11 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+//            dd(Auth()::user());
             return redirect()->intended('/');
         }
 
-        return back()->with('errorMessage', 'Login failed. Please try again.');
+        return back()->withErrors('errorMessage', 'Login failed. Please try again.');
     }
 
     // Show register form
@@ -52,6 +56,7 @@ class AuthController extends Controller
             'password' => ['required', 'min:8', 'confirmed']
         ]);
 
+        $validatedData['role_id'] = 2;
         $validatedData['password'] = Hash::make($validatedData['password']);
 
         User::create($validatedData);

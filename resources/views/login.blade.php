@@ -23,6 +23,10 @@
                             </label>
                         </div>
                     </div>
+                    {{ $errors }}
+                    @error('errorMessage')
+                        {{ $message }}
+                    @enderror
                     <button class="btn btn-primary form-control mb-3">
                         <i class="bi-box-arrow-in-right me-1"></i>
                         Login

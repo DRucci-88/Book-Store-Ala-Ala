@@ -10,6 +10,7 @@ use App\Models\Receipt;
 use App\Models\Role;
 use App\Models\Transaction;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -28,13 +29,13 @@ class DatabaseSeeder extends Seeder
             'role_id' => 1,
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
-            'password' => 'admin'
+            'password' => Hash::make('admin')
         ]);
         User::create([
             'role_id' => 2,
             'name' => 'robert',
             'email' => 'robert@gmail.com',
-            'password' => 'robert'
+            'password' => Hash::make('robert')
         ]);
 
         Role::create([
