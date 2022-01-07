@@ -13,19 +13,35 @@ use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
+
     public function run(): void
     {
         Book::factory(15)->create();
         Genre::factory(5)->create();
-        Role::factory(2)->create();
-        User::factory(5)->create();
+//        Role::factory(2)->create();
+//        User::factory(5)->create();
         Receipt::factory(15)->create();
         Transaction::factory(20)->create();
         BookGenre::factory(30)->create();
+
+        User::create([
+            'role_id' => 1,
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'password' => 'admin'
+        ]);
+        User::create([
+            'role_id' => 2,
+            'name' => 'robert',
+            'email' => 'robert@gmail.com',
+            'password' => 'robert'
+        ]);
+
+        Role::create([
+            'name' => 'admin',
+        ]);
+        Role::create([
+            'name' => 'member',
+        ]);
     }
 }
