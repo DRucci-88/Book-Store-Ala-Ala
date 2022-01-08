@@ -5,7 +5,19 @@
     <div class="container my-5 flex-fill">
         <div class="row justify-content-center">
             <div class="col-md-11">
-                <form action="/user/{user_id}">
+                @if (session()->has('successMessage'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('successMessage') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                @if (session()->has('errorMessage'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('errorMessage') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                <form action="{{route('update_profile')}}" method="post">
                     @csrf
                     <div class="card">
                         <div class="card-body">
@@ -13,13 +25,13 @@
                             <div class="row mb-3">
                                 <label class="col-sm-6 col-form-label">Name</label>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" name="name" placeholder="MemberNameInDB">
+                                    <input type="text" class="form-control" name="name" placeholder="{{Auth::user()->name}}">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <p class="col-sm-6 col-form-label">Email</p>
                                 <div class="col-sm-6">
-                                    <p class="col-form-label">memberemailindb@gmail.com</p>
+                                    <label class="col-form-label">{{Auth::user()->email}}</label>
                                 </div>
                             </div>
                             <div class="d-grid gap-2 d-md-block">

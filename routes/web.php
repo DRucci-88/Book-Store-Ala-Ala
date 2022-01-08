@@ -72,6 +72,8 @@ Route::get('/register', [AuthController::class, 'register']);
 Route::post('/register', [AuthController::class, 'store']);
 /* End of Guest */
 
+Route::get('/profile/profile',[AuthController::class, 'changeProfile'])->name('change_profile');
+Route::post('/profile/profile',[AuthController::class, 'updateProfile'])->name('update_profile');
 
 Route::get('/profile/password',[AuthController::class, 'changePassword'])->name('change_password');
 Route::post('/profile/password',[AuthController::class, 'updatePassword'])->name('update_password');

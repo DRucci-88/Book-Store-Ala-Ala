@@ -70,6 +70,22 @@ class AuthController extends Controller
     }
 
 
+    // Handle user change name
+
+    public function changeProfile(){
+        return view('auth.profile');
+    }
+
+    public function updateProfile(Request $request){
+        $user = Auth::user();
+        $user->name = $request['name'];
+        $user->save();
+        return back()->with('successMessage', 'Name changed successfully');
+    }
+
+
+
+
     // Handle user change password
     public function changePassword()
     {
