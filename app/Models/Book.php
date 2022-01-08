@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @method static create(string[] $array)
+ * @method static lazy()
  * @property mixed $name
  * @property mixed $author
  * @property mixed $price

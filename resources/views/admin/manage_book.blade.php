@@ -1,115 +1,79 @@
 @extends('layouts.main')
 
 @section('content')
-
+  <style>
+    span{
+      color: red;
+    }
+  </style>
   <div class="container my-5">
     <div class="row justify-content-center">
       <div class="col-md-11">
-        <form action="/book" method="POST">
+        @if ( session()->has('successMessage'))
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('successMessage') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        @endif
+
+        @if ( session()->has('errorMessage'))
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('errorMessage') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        @endif
+        <form action="/admin/book" method="POST" enctype="multipart/form-data">
           @csrf
           <div class="card">
             <div class="card-body">
+
               <h3>Insert Book Form</h3>
+
               <div class="row mb-3">
-                <label class="col-sm-6 col-form-label">Name</label>
+                <label class="col-sm-4 col-form-label">Name</label>
                 <div class="col-sm-6">
                   <input type="text" class="form-control" name="name">
+                  <span>{{ $errors->first('name') }}</span>
                 </div>
               </div>
+
               <div class="row mb-3">
-                <label class="col-sm-6 col-form-label">Author</label>
+                <label class="col-sm-4 col-form-label">Author</label>
                 <div class="col-sm-6">
                   <input type="text" class="form-control" name="author">
+                  <span>{{ $errors->first('author') }}</span>
                 </div>
               </div>
+
               <div class="row mb-3">
-                <label class="col-sm-6 col-form-label">Synopsis</label>
+                <label class="col-sm-4 col-form-label">Synopsis</label>
                 <div class="col-sm-6">
                   <textarea type="text" class="form-control" name="synopsis"></textarea>
+                  <span>{{ $errors->first('synopsis') }}</span>
                 </div>
               </div>
+
               <div class="row mb-3">
-                <label class="col-sm-6 col-form-label">Genre(s)</label>
-                <div class="row col-sm-6">
-                  <div class="col-sm-4">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
-                      <label class="form-check-label" for="gridCheck1">
-                        Example checkbox
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
-                      <label class="form-check-label" for="gridCheck1">
-                        Example checkbox
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
-                      <label class="form-check-label" for="gridCheck1">
-                        Example checkbox
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
-                      <label class="form-check-label" for="gridCheck1">
-                        Example checkbox
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
-                      <label class="form-check-label" for="gridCheck1">
-                        Example checkbox
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
-                      <label class="form-check-label" for="gridCheck1">
-                        Example checkbox
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
-                      <label class="form-check-label" for="gridCheck1">
-                        Example checkbox
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
-                      <label class="form-check-label" for="gridCheck1">
-                        Example checkbox
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
-                      <label class="form-check-label" for="gridCheck1">
-                        Example checkbox
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row mb-3">
-                <label class="col-sm-6 col-form-label">Price</label>
+                <label class="col-sm-4 col-form-label">Price</label>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" name="price">
+                  <input type="number" class="form-control" name="price">
+                  <span>{{ $errors->first('price') }}</span>
                 </div>
               </div>
+
               <div class="row mb-3">
-                <label class="col-sm-6 col-form-label">Cover</label>
+                <label class="col-sm-4 col-form-label">Cover</label>
                 <div class="col-sm-6">
-                  <img class="img-thumbnail" src="..." alt="Book Title Cover">
                   <input type="file" class="form-control" name="cover">
+                  <span>{{ $errors->first('cover') }}</span>
                 </div>
               </div>
+
               <button type="submit" class="btn btn-primary col-sm-4">Insert</button>
             </div>
           </div>
         </form>
+
         <table class="table">
           <thead>
           <tr>

@@ -16,7 +16,37 @@ class AdminController extends Controller
             'books' => Book::all()
         ]);
     }
+    public function insertBook(Request $req)
+    {
+//        dd($req->input());
+//        dd($req->file());
+//        dd($req['cover']);
 
+        $req->validate([
+            'name' => ['required', 'string', 'max:250'],
+            'author' => ['required', 'string', 'max:250'],
+            'synopsis' => ['required', 'string',],
+            'price' => ['required', 'numeric', 'min:0', 'max:100000'],
+            'cover' => ['required', 'mimes:jpg,png,jpeg', 'max:5048']
+        ]);
+
+        $coverName = $req->file('cover')->getClientOriginalName();
+
+        $respond = Book::create([
+            'name' => $req['name'],
+            'author' => $req['author'],
+            'synopsis' => $req['synopsis'],
+            'price' => $req['price'],
+            'cover' => $coverName
+        ]);
+
+        if ($respond){
+            $req->file('cover')->move(public_path('books'), $coverName);
+            return back()->with('successMessage', 'Insert Book Success');
+        }
+        return back()->with('errorMessage', 'Insert Book Failed');
+
+    }
     public function bookDetail(Book $book)
     {
         //        dd($book);
@@ -24,7 +54,7 @@ class AdminController extends Controller
             'book' => $book
         ]);
     }
-    public function updateBook(Book $book, Request $req)
+    public function updateBook(Book $book, Request $req): \Illuminate\Http\RedirectResponse
     {
         //        dd($book);
         //        dd($req->input());
