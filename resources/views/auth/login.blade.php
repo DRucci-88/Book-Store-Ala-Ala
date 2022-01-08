@@ -30,7 +30,7 @@
                         </div>
                         <div class="input-group mb-3">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox">
+                                <input class="form-check-input" type="checkbox" name="rememberMe">
                                 <label class="form-check-label">
                                     Remember me
                                 </label>

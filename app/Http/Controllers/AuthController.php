@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -17,8 +18,10 @@ class AuthController extends Controller
     }
 
     // Show login form
-    public function login()
+    public function login(Request $request)
     {
+        $value = $request->cookie('email');
+        echo $value;
         return view('auth.login');
     }
 
@@ -29,6 +32,12 @@ class AuthController extends Controller
             'email' => ['required'],
             'password' => ['required']
         ]);
+        if ($request['rememberMe']){
+            $minute=5;
+            $response=new Response();
+            $response->withCookie(cookie('email',$request['email'],$minute));
+            $response->withCookie(cookie('password',$request['password'],$minute));
+        }
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
