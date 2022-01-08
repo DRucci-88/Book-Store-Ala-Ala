@@ -14,31 +14,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Rucci</td>
-                            <td>Rucci@mail.com</td>
-                            <td>Admin</td>
-                            <td>
-                                <div class="d-grid gap-2 d-md-block">
-                                    <a href="/user/{user_id}" class="btn btn-secondary">View Detail</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Darren</td>
-                            <td>Darren@mail.com</td>
-                            <td>Member</td>
-                            <td>
-                                <div class="d-grid gap-2 d-md-block">
-                                    <a href="/user/{user_id}" class="btn btn-secondary">View Detail</a>
-                                    <form action="/user/{user_id}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger" type="submit">Delete</button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
+                        @foreach ($users as $user)
+                            <tr>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->role->name }}</td>
+                                <td>
+                                    <div class="d-grid gap-2 d-md-block">
+                                        <a href="/user/{{ $user->id }}/admin" class="btn btn-secondary">View Detail</a>
+                                        @if ($user->role->id === 2)
+                                            <form action="/user/{{ $user->id }}/admin" method="POST" class="d-inline-block">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-danger" type="submit">Delete</button>
+                                            </form>
+                                        @endif
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

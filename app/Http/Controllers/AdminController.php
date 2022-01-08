@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\User;
 use App\Models\Genre;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
 {
@@ -37,6 +39,8 @@ class AdminController extends Controller
         }
         return back()->with('errorMessage', 'Book Update Failed');
     }
+
+    // Manage Genre Page
     public function manageGenre()
     {
         return view('admin.manage_genre', [
@@ -44,6 +48,7 @@ class AdminController extends Controller
         ]);
     }
 
+    // Genre Detail Page
     public function genreDetail(Genre $genre)
     {
         return view('admin.genre_detail', [
@@ -51,6 +56,8 @@ class AdminController extends Controller
             'books' => $genre->books
         ]);
     }
+
+    // Handle Add Genre
     public function addGenre(Request $req)
     {
         $validatedData = $req->validate([
@@ -62,6 +69,8 @@ class AdminController extends Controller
         }
         return back()->with('errorMessage', 'Genre Add Failed');
     }
+
+    // Handle Update Genre
     public function updateGenre(Genre $genre, Request $req)
     {
         $validatedData = $req->validate([
@@ -74,11 +83,56 @@ class AdminController extends Controller
         }
         return back()->with('errorMessage', 'Genre Update Failed');
     }
+
+    // Handle Delete Genre
     public function deleteGenre(Genre $genre)
     {
         if ($genre->delete()) {
             return redirect('/admin/genre')->with('successMessage', 'Genre Deleted Successfully');
         }
         return back()->with('errorMessage', 'Genre Delete Failed');
+    }
+
+    // Manage User Page
+    public function manageUser()
+    {
+        return view('admin.manage_user', [
+            'users' => User::all()
+        ]);
+    }
+
+    // User Detail Page
+    public function userDetail(User $user)
+    {
+        return view('admin.user_detail', [
+            'user' => $user
+        ]);
+    }
+
+    // Handle Update User
+    public function updateUser(User $user, Request $req)
+    {
+        $validatedData = $req->validate([
+            'name' => 'required',
+            'email' => ['required', 'email', Rule::unique('users')->ignore($user->id)],
+            'role' => 'required'
+        ]);
+
+        $user->name = $validatedData['name'];
+        $user->email = $validatedData['email'];
+        $user->role_id = $validatedData['role'] === 'Admin' ? 1 : 2;
+        if ($user->save()) {
+            return back()->with('successMessage', 'User Updated Successfully');
+        }
+        return back()->with('errorMessage', 'User Update Failed');
+    }
+
+    // Handle Delete User
+    public function deleteUser(User $user)
+    {
+        if ($user->delete()) {
+            return redirect('/admin/user')->with('successMessage', 'User Deleted Successfully');
+        }
+        return back()->with('errorMessage', 'User Delete Failed');
     }
 }

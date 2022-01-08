@@ -24,19 +24,19 @@ class AuthController extends Controller
     // Handle login authentication
     public function authenticate(Request $request): \Illuminate\Http\RedirectResponse
     {
-//        dd($request->input());
+        //        dd($request->input());
 
         $credentials = $request->validate([
-            'email' => ['required'],
+            'email' => ['required', 'email'],
             'password' => ['required']
         ]);
-        if ($request['rememberMe'] === 'on'){
+        if ($request['rememberMe'] === 'on') {
             $minutes = 5;
             cookie('email', $request['email'], $minutes);
             cookie('password', $request['password'], $minutes);
-//            $response = new Response();
-//            $response->withCookie(cookie('email',$request['email'],$minute));
-//            $response->withCookie(cookie('password',$request['password'],$minute));
+            //            $response = new Response();
+            //            $response->withCookie(cookie('email',$request['email'],$minute));
+            //            $response->withCookie(cookie('password',$request['password'],$minute));
         }
 
         if (Auth::attempt($credentials)) {
@@ -56,7 +56,7 @@ class AuthController extends Controller
     // Handle user registration
     public function store(Request $request)
     {
-//        dd($request->input());
+        //        dd($request->input());
         $validatedData = $request->validate([
             'name' => ['required'],
             'email' => ['required', 'email', 'unique:users'],
@@ -82,7 +82,8 @@ class AuthController extends Controller
 
     // Handle user change name
 
-    public function changeProfile(){
+    public function changeProfile()
+    {
         return view('auth.profile');
     }
 

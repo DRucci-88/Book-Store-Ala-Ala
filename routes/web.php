@@ -39,12 +39,10 @@ Route::get('/genre/{genre}/admin', [AdminController::class, 'genreDetail']);
 Route::post('/genre/{genre}/admin', [AdminController::class, 'updateGenre']);
 Route::delete('/genre/{genre}/admin', [AdminController::class, 'deleteGenre']);
 
-Route::get('admin/user', function () {
-    return view('admin/manage_user');
-});
-Route::get('admin/user/id', function () {
-    return view('admin/user_detail');
-});
+Route::get('/admin/user', [AdminController::class, 'manageUser']);
+Route::get('/user/{user}/admin', [AdminController::class, 'userDetail']);
+Route::post('/user/{user}/admin', [AdminController::class, 'updateUser']);
+Route::delete('/user/{user}/admin', [AdminController::class, 'deleteUser']);
 
 /* Member */
 // Fix route with middleware
