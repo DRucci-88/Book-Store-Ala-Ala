@@ -15,7 +15,7 @@ class TransactionFactory extends Factory
     {
         return [
             'receipt_id' => $this->faker->numberBetween(1,15),
-            'book_id' => $this->faker->numberBetween(1,15),
+            'book_id' => $this->faker->numberBetween(1,30),
             'price' => $this->faker->numberBetween(10,100) * 1000,
             'quantity' => $this->faker->numberBetween(1,10)
         ];

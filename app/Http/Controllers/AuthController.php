@@ -22,7 +22,7 @@ class AuthController extends Controller
     }
 
     // Handle login authentication
-    public function authenticate(Request $request)
+    public function authenticate(Request $request): \Illuminate\Http\RedirectResponse
     {
         $credentials = $request->validate([
             'email' => ['required'],
@@ -98,7 +98,7 @@ class AuthController extends Controller
         if (!(Hash::check($request->get('old_password'), Auth::user()->password))) {
             return back()->with('errorMessage', 'Your current password does not match');
         }
-        if (strcmp($request->get('old_password'), $request->get('new_password')) == 0) {
+        if (strcmp($request->get('old_password'), $request->get('new_password')) === 0) {
             return back()->with('errorMessage', 'Your current password cannot be same with the new password');
         }
         $request->validate([

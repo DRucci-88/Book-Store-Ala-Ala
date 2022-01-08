@@ -14,7 +14,7 @@ class ReceiptFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => $this->faker->numberBetween(1,5),
+            'user_id' => $this->faker->numberBetween(1,2),
             'date' => $this->faker->dateTime()
         ];
     }

@@ -17,38 +17,18 @@ class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
+        $this->call([
+            BookSeeder::class,
+            UserSeeder::class,
+            RoleSeeder::class,
 
+        ]);
 
-        Book::factory(15)->create();
         Genre::factory(5)->create();
-//        Role::factory(2)->create();
-//        User::factory(5)->create();
         Receipt::factory(15)->create();
-        Transaction::factory(20)->create();
+        Transaction::factory(30)->create();
         BookGenre::factory(30)->create();
 
-        Book::create([
-            ''
-        ]);
 
-        User::create([
-            'role_id' => 1,
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => Hash::make('admin')
-        ]);
-        User::create([
-            'role_id' => 2,
-            'name' => 'robert',
-            'email' => 'robert@gmail.com',
-            'password' => Hash::make('robert')
-        ]);
-
-        Role::create([
-            'name' => 'admin',
-        ]);
-        Role::create([
-            'name' => 'member',
-        ]);
     }
 }

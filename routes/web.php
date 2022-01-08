@@ -6,11 +6,11 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
-// Testing Development
+// TESTING DEVELOPMENT
 Route::get('/modelTesting', [TestingController::class, 'modelTesting']);
 Route::get('/controllerTesting', [TestingController::class, 'controllerTesting']);
 
-/* All Users */
+// HOME
 Route::get('/', [HomeController::class, 'index']);
 
 /* Book details page is separated based on user */

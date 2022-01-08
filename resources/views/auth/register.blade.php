@@ -1,34 +1,81 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <form action="/register" method="POST" class="card shadow col-sm-4">
-                @csrf
-                <div class="card-body">
-                    <h2 class="mb-3">Register</h2>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="bi-envelope"></i></span>
-                        <input type="email" class="form-control" name="email" placeholder="Email" required>
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="bi-person"></i></span>
-                        <input type="text" class="form-control" name="name" placeholder="Full Name" required>
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="bi-lock"></i></span>
-                        <input type="password" class="form-control" name="password" placeholder="Password" required>
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="bi-lock"></i></span>
-                        <input type="password" class="form-control" name="password_confirmation" placeholder="Confirmation Password" required>
-                    </div>
-                    <button class="btn btn-primary form-control mb-3">
-                        <i class="bi-person-lines-fill me-1"></i>
-                        Register
-                    </button>
-                </div>
-            </form>
+  <style>
+    span {
+      color: red;
+    }
+  </style>
+  <div class="container">
+    <div class="row justify-content-center">
+      <form action="/register" method="POST" class="card shadow col-sm-4">
+        @csrf
+        <div class="card-body">
+{{--          {{ $errors }}--}}
+          <h2 class="mb-3">Register</h2>
+          <div class="input-group mt-3">
+            <span class="input-group-text"><i class="bi-envelope"></i></span>
+            <input type="text" class="form-control" name="email" placeholder="Email" required>
+          </div>
+          <span>{{ $errors->first('email') }}</span>
+          <div class="input-group mt-3">
+            <span class="input-group-text"><i class="bi-person"></i></span>
+            <input type="text" class="form-control" name="name" placeholder="Full Name" required>
+          </div>
+          <span>{{ $errors->first('name') }}</span>
+          <div class="input-group mt-3">
+            <span class="input-group-text"><i class="bi-lock"></i></span>
+            <input type="password" class="form-control" name="password" placeholder="Password" id="password" required>
+          </div>
+
+          <div class="input-group mt-3">
+            <span class="input-group-text"><i class="bi-lock"></i></span>
+            <input type="password" class="form-control" name="password_confirmation" id="confirmPassword" placeholder="Confirmation Password"
+                   required>
+          </div>
+
+          @foreach( $errors->get('password') as $message )
+            <span>{{ $message }}<br></span>
+          @endforeach
+
+          <div class="form-group form-check mt-3" onclick="showPassword()">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Show Password</label>
+          </div>
+
+          <button class="btn btn-primary form-control mt-3">
+            <i class="bi-person-lines-fill me-1"></i>
+            Register
+          </button>
         </div>
+      </form>
     </div>
+  </div>
+  <script>
+      const x = document.getElementById("password");
+      const y = document.getElementById("confirmPassword");
+
+      function showPassword() {
+          console.log('show password');
+          let checkPassword = document.getElementById('exampleCheck1');
+          if(checkPassword.checked === true){
+              x.type = "text";
+              y.type = "text";
+          }
+          else{
+              x.type = "password";
+              y.type = "password";
+          }
+
+      }
+
+      function showConfirmPassword() {
+          let x = document.getElementById("confirmPassword");
+          if (x.type === "password") {
+              x.type = "text";
+          } else {
+              x.type = "password";
+          }
+      }
+  </script>
 @endsection
