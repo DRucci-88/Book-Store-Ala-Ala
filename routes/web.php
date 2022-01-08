@@ -17,19 +17,21 @@ Route::get('/', [HomeController::class, 'index']);
 /* End of All Users */
 
 // AUTHENTICATED Users (admin & Member)
+Route::get('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'authenticate']);
+Route::get('/register', [AuthController::class, 'register']);
+Route::post('/register', [AuthController::class, 'store']);
 Route::get('/profile', [AuthController::class, 'changeProfile']);
 Route::post('/profile', [AuthController::class, 'updateProfile']);
 Route::get('/profile/password', [AuthController::class, 'changePassword'])->name('change_password');
 Route::post('/profile/password', [AuthController::class, 'updatePassword'])->name('update_password');
 Route::post('/logout', [AuthController::class, 'logout']);
-/* End of Authenticated Users */
 
-/* admin */
+// ADMIN
 Route::get('/book', function () {
     return view('admin/manage_book');
 });
-// Fix route with middleware
-Route::get('/book/id/admin', function () {
+Route::get('/book/{book}/admin', function () {
     return view('admin/book_detail');
 });
 
@@ -46,15 +48,14 @@ Route::get('/user', function () {
 Route::get('/user/id', function () {
     return view('admin/user_detail');
 });
-/* End of admin */
 
 /* Member */
 // Fix route with middleware
-Route::get('/book/{book:id}/member', [HomeController::class, 'show']);
+Route::get('/book/{book}/detail', [HomeController::class, 'show']);
 
 Route::get('/cart', [OrderController::class, 'index']);
 Route::post('/cart/{book:id}', [OrderController::class, 'update']);
-Route::get('/cart/{book:id}', [HomeController::class, 'show']);
+Route::get('/cart/{book:id}', [OrderController::class, 'show']);
 Route::post('/cart/r/{book:id}', [OrderController::class, 'destroy']);
 
 Route::get('/history', [OrderController::class, 'create']);
@@ -63,11 +64,7 @@ Route::get('/history/{receipt:id}', [OrderController::class, 'show']);
 
 /* Guest */
 // Fix route with middleware
-Route::get('/book/{book:id}/guest', [HomeController::class, 'show']);
+//Route::get('/book/{book:id}/guest', [HomeController::class, 'show']);
 
-Route::get('/login', [AuthController::class, 'login']);
-Route::post('/login', [AuthController::class, 'authenticate']);
 
-Route::get('/register', [AuthController::class, 'register']);
-Route::post('/register', [AuthController::class, 'store']);
 /* End of Guest */
