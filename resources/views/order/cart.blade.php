@@ -37,34 +37,6 @@
                                 </td>
                             </tr>
                         @endforeach
-                        <tr>
-                            <td>The Deprecated</td>
-                            <td>Nehemia</td>
-                            <td>IDR 99900</td>
-                            <td>1 book</td>
-                            <td>IDR 99900</td>
-                            <td>
-                                <div class="d-grid gap-2 d-md-block">
-                                    <a href="#" class="btn btn-secondary">View Book Detail</a>
-                                    <a href="#" class="btn btn-primary">Edit</a>
-                                    <a href="#" class="btn btn-danger">Remove</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Flipboard</td>
-                            <td>G.S. Putra</td>
-                            <td>IDR 100000</td>
-                            <td>2 books</td>
-                            <td>IDR 200000</td>
-                            <td>
-                                <div class="d-grid gap-2 d-md-block">
-                                    <a href="#" class="btn btn-secondary">View Book Detail</a>
-                                    <a href="#" class="btn btn-primary">Edit</a>
-                                    <a href="#" class="btn btn-danger">Remove</a>
-                                </div>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
                 <h6 class="mb-3">Grand Total: IDR <?= $grandtotal; ?></h6>

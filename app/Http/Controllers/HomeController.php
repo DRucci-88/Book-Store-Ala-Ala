@@ -11,9 +11,9 @@ class HomeController extends Controller
     // Homepage (Pagination & Searching)
     public function index()
     {
-        $prefix = 'detail';
-        if (Auth::user()){
-            $prefix = Auth::user()->role->id === 1 ? 'admin' : 'detail' ;
+        $prefix = '';
+        if (Auth::user()) {
+            $prefix = Auth::user()->role->id === 1 ? '/admin' : '';
         }
         return view('home.index', [
             'books' => Book::latest()->filter(request('search'))->paginate(5)->withQueryString(),
@@ -24,7 +24,7 @@ class HomeController extends Controller
     // Book detail (Member & Guest)
     public function show(Book $book)
     {
-//        dd($book);
+        //        dd($book);
         return view('home.book_detail', [
             'book' => $book
         ]);

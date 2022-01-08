@@ -49,7 +49,7 @@ Route::get('admin/user/id', function () {
 
 /* Member */
 // Fix route with middleware
-Route::get('/book/{book}/detail', [HomeController::class, 'show']);
+Route::get('/book/{book}', [HomeController::class, 'show']);
 
 Route::get('/cart', [OrderController::class, 'index']);
 Route::get('/cart/{book:id}', [HomeController::class, 'show']);

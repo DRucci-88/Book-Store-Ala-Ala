@@ -23,7 +23,7 @@
                 <h5 class="card-title fw-bold mt-1" style="min-height: 3rem;">{{ $book->name }}</h5>
                 <p class="card-text mb-0">By: {{ $book->author }}</p>
                 <p class="card-text">IDR {{ $book->price }}</p>
-                <a href="/book/{{ $book->id }}/{{ $prefix }}" class="btn btn-primary mt-auto">
+                <a href="/book/{{ $book->id }}{{ $prefix }}" class="btn btn-primary mt-auto">
                   <i class="bi-info-circle-fill"></i>
                   View details
                 </a>
