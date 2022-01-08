@@ -36,6 +36,8 @@ class OrderController extends Controller
                     $item = $book;
                 }
             }
+        } else {
+            $items = [];
         }
 
         if ($action === 'add') {

@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Symfony\Component\HttpFoundation\Cookie;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Cookie;
 
 class AuthController extends Controller
 {
@@ -17,26 +17,29 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $email = $request->cookie('email');
-        echo $email;
-        return view('auth.login');
+        $password = $request->cookie('password');
+        return view('auth.login', [
+            'email' => $email
+        ]);
     }
 
     // Handle login authentication
     public function authenticate(Request $request): \Illuminate\Http\RedirectResponse
     {
-        //        dd($request->input());
+        Cookie::queue(Cookie::forget('email'));
+        Cookie::queue(Cookie::forget('password'));
+        Cookie::queue(Cookie::forget('remember_me'));
 
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required']
         ]);
-        if ($request['rememberMe'] === 'on') {
-            $minutes = 5;
-            cookie('email', $request['email'], $minutes);
-            cookie('password', $request['password'], $minutes);
-            //            $response = new Response();
-            //            $response->withCookie(cookie('email',$request['email'],$minute));
-            //            $response->withCookie(cookie('password',$request['password'],$minute));
+
+        if ($request->has('remember_me')) {
+            $minutes = 60 * 24 * 7;
+            Cookie::queue('email', $request->email, $minutes);
+            Cookie::queue('password', $request->password, $minutes);
+            Cookie::queue('remember_me', $request->remember_me, $minutes);
         }
 
         if (Auth::attempt($credentials)) {
