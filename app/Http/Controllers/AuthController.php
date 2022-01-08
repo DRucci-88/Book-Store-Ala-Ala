@@ -111,5 +111,3 @@ class AuthController extends Controller
         return back()->with('successMessage', 'Password changed successfully');
     }
 }
-
-

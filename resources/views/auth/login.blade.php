@@ -22,11 +22,11 @@
                         <h2 class="mb-3">Login</h2>
                         <div class="input-group mb-3">
                             <span class="input-group-text"><i class="bi-envelope"></i></span>
-                            <input type="email" class="form-control" name="email" placeholder="Email">
+                            <input type="email" class="form-control" name="email" placeholder="Email" required>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text"><i class="bi-lock"></i></span>
-                            <input type="password" class="form-control" name="password" placeholder="Password">
+                            <input type="password" class="form-control" name="password" placeholder="Password" required>
                         </div>
                         <div class="input-group mb-3">
                             <div class="form-check">

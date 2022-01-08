@@ -7,11 +7,11 @@ use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 // Testing Development
-Route::get('/modelTesting', [TestingController::class,'modelTesting']);
+Route::get('/modelTesting', [TestingController::class, 'modelTesting']);
 Route::get('/controllerTesting', [TestingController::class, 'controllerTesting']);
 
 /* All Users */
-Route::get('/', [HomeController::class,'index']);
+Route::get('/', [HomeController::class, 'index']);
 
 /* Book details page is separated based on user */
 /* End of All Users */
@@ -20,9 +20,9 @@ Route::get('/', [HomeController::class,'index']);
 Route::get('/profile', function () {
     return view('auth/profile');
 });
-Route::get('/profile/password', function () {
-    return view('auth/password');
-});
+
+Route::get('/profile/password', [AuthController::class, 'changePassword'])->name('change_password');
+Route::post('/profile/password', [AuthController::class, 'updatePassword'])->name('update_password');
 
 Route::post('/logout', [AuthController::class, 'logout']);
 /* End of Authenticated Users */
@@ -56,7 +56,9 @@ Route::get('/user/id', function () {
 Route::get('/book/{book:id}/member', [HomeController::class, 'show']);
 
 Route::get('/cart', [OrderController::class, 'index']);
+Route::post('/cart/{book:id}', [OrderController::class, 'update']);
 Route::get('/cart/{book:id}', [HomeController::class, 'show']);
+Route::post('/cart/r/{book:id}', [OrderController::class, 'destroy']);
 
 Route::get('/history', [OrderController::class, 'create']);
 Route::get('/history/{receipt:id}', [OrderController::class, 'show']);
@@ -72,9 +74,3 @@ Route::post('/login', [AuthController::class, 'authenticate']);
 Route::get('/register', [AuthController::class, 'register']);
 Route::post('/register', [AuthController::class, 'store']);
 /* End of Guest */
-
-Route::get('/profile/profile',[AuthController::class, 'changeProfile'])->name('change_profile');
-Route::post('/profile/profile',[AuthController::class, 'updateProfile'])->name('update_profile');
-
-Route::get('/profile/password',[AuthController::class, 'changePassword'])->name('change_password');
-Route::post('/profile/password',[AuthController::class, 'updatePassword'])->name('update_password');

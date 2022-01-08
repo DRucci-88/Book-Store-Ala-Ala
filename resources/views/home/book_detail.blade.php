@@ -38,11 +38,12 @@
                                     <p class="col-sm-8">IDR {{ $book->price }}</p>
                                 </div>
                                 @auth
-                                    <form action="/cart/{item_id}" class="row justify-content-between">
+                                    <form action="/cart/{{ $book->id }}" method="POST" class="row justify-content-between">
+                                        @csrf
                                         <div class="col-sm-4">
                                             <div class="input-group">
                                                 <span class="input-group-text">Quantity</span>
-                                                <input type="number" min="1" class="form-control" name="quantity" placeholder="1">
+                                                <input type="number" min="1" class="form-control" name="quantity" placeholder="e.g. 1" value="1" required>
                                             </div>
                                         </div>
                                         <div class="col-sm text-end">

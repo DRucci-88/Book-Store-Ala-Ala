@@ -25,7 +25,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-6 col-form-label">Name</label>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" name="name" placeholder="{{Auth::user()->name}}">
+                                    <input type="text" class="form-control" name="name" placeholder="{{Auth::user()->name}}" required>
                                 </div>
                             </div>
                             <div class="row mb-3">
