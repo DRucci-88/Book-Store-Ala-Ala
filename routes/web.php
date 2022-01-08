@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 // Testing Development
 Route::get('/modelTesting', [TestingController::class,'modelTesting']);
+Route::get('/controllerTesting', [TestingController::class, 'controllerTesting']);
 
 /* All Users */
 Route::get('/', [HomeController::class,'index']);
@@ -23,7 +24,7 @@ Route::get('/profile/password', function () {
     return view('auth/password');
 });
 
-Route::post('/logout', [AuthController::class, 'store']);
+Route::post('/logout', [AuthController::class, 'logout']);
 /* End of Authenticated Users */
 
 /* admin */

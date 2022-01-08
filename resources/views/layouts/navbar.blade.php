@@ -62,7 +62,7 @@
                     </li>
                 </div>
             </ul>
-            
+
             <!-- Guest Navbar -->
             <ul class="navbar-nav ms-auto">
                 <div class="btn-group">

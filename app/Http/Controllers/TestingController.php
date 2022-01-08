@@ -14,13 +14,23 @@ class TestingController extends Controller
 {
     public function modelTesting()
     {
-        return view('modelTesting', [
+        return view('testing.model_testing', [
             'transactions' => Transaction::all(),
             'receipts' => Receipt::all(),
             'roles' => Role::all(),
             'users' => User::all(),
             'genres' => Genre::all(),
             'books' => Book::all()
+        ]);
+    }
+
+    public function controllerTesting(){
+
+        $receipt = Receipt::all()->find(1);
+        $transactions = $receipt->transactions;
+        return view('testing.controller_testing',[
+            'receipt' => $receipt,
+            'transactions' => $transactions
         ]);
     }
 }
