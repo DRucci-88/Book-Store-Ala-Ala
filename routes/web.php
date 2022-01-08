@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/modelTesting', [TestingController::class, 'modelTesting']);
 Route::get('/controllerTesting', [TestingController::class, 'controllerTesting']);
 
+// FORBIDDEN
+Route::view('/not-admin', 'forbidden.not_admin');
+
 // HOME
 Route::get('/', [HomeController::class, 'index']);
 
@@ -28,23 +31,30 @@ Route::get('/profile/password', [AuthController::class, 'changePassword'])->name
 Route::post('/profile/password', [AuthController::class, 'updatePassword'])->name('update_password');
 Route::post('/logout', [AuthController::class, 'logout']);
 
-// ADMIN
-Route::get('/admin/book', [AdminController::class, 'manageBook']);
-Route::post('/admin/book', [AdminController::class, 'insertBook']);
-Route::get('/book/{book}/admin', [AdminController::class, 'bookDetail']);
-Route::post('/book/{book}/admin', [AdminController::class, 'updateBook']);
-Route::delete('book/{book}/admin', [AdminController::class, 'deleteBook']);
+// MIDDLEWARE GROUP FOR ADMIN
+Route::group(['middleware'=>['adminProtectedPage']], static function(){
+    Route::get('/admin', [AdminController::class, 'manageBook']);
+    // ADMIN BOOK
+    Route::get('/admin/book', [AdminController::class, 'manageBook']);
+    Route::post('/admin/book', [AdminController::class, 'insertBook']);
+    Route::get('/book/{book}/admin', [AdminController::class, 'bookDetail']);
+    Route::post('/book/{book}/admin', [AdminController::class, 'updateBook']);
+    Route::delete('/book/{book}/admin', [AdminController::class, 'deleteBook']);
 
-Route::get('/admin/genre', [AdminController::class, 'manageGenre']);
-Route::post('/admin/genre', [AdminController::class, 'addGenre']);
-Route::get('/genre/{genre}/admin', [AdminController::class, 'genreDetail']);
-Route::post('/genre/{genre}/admin', [AdminController::class, 'updateGenre']);
-Route::delete('/genre/{genre}/admin', [AdminController::class, 'deleteGenre']);
+    // ADMIN GENRE
+    Route::get('/admin/genre', [AdminController::class, 'manageGenre']);
+    Route::post('/admin/genre', [AdminController::class, 'addGenre']);
+    Route::get('/genre/{genre}/admin', [AdminController::class, 'genreDetail']);
+    Route::post('/genre/{genre}/admin', [AdminController::class, 'updateGenre']);
+    Route::delete('/genre/{genre}/admin', [AdminController::class, 'deleteGenre']);
 
-Route::get('/admin/user', [AdminController::class, 'manageUser']);
-Route::get('/user/{user}/admin', [AdminController::class, 'userDetail']);
-Route::post('/user/{user}/admin', [AdminController::class, 'updateUser']);
-Route::delete('/user/{user}/admin', [AdminController::class, 'deleteUser']);
+    // ADMIN USER
+    Route::get('/admin/user', [AdminController::class, 'manageUser']);
+    Route::get('/user/{user}/admin', [AdminController::class, 'userDetail']);
+    Route::post('/user/{user}/admin', [AdminController::class, 'updateUser']);
+    Route::delete('/user/{user}/admin', [AdminController::class, 'deleteUser']);
+});
+
 
 /* Member */
 // Fix route with middleware
