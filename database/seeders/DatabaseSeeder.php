@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
+
+
         Book::factory(15)->create();
         Genre::factory(5)->create();
 //        Role::factory(2)->create();
@@ -24,6 +26,10 @@ class DatabaseSeeder extends Seeder
         Receipt::factory(15)->create();
         Transaction::factory(20)->create();
         BookGenre::factory(30)->create();
+
+        Book::create([
+            ''
+        ]);
 
         User::create([
             'role_id' => 1,
