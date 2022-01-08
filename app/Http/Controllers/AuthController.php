@@ -87,10 +87,10 @@ class AuthController extends Controller
         }
         $request->validate([
             'old_password' => 'required',
-            'new_passwod' => 'required|string|min:8|confirmed'
+            'new_password' => 'required|string|min:8|confirmed'
         ]);
         $user = Auth::user();
-        $user->password = bcrypt($request->get('old_password'));
+        $user->password = bcrypt($request->get('new_password'));
         $user->save();
         return back()->with('message', 'Password changed successfully');
     }

@@ -6,6 +6,7 @@
         <div class="row justify-content-center">
             <div class="col-md-11">
                 <form action="{{route('update_password')}}" id="" method="post">
+                    @csrf
                     <div class="card">
                         <div class="card-body">
                             <h3>Change Password</h3>
