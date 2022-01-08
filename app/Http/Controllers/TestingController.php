@@ -26,7 +26,7 @@ class TestingController extends Controller
 
     public function controllerTesting(){
 
-        $receipt = Receipt::all()->find(1);
+        $receipt = Receipt::find(1);
         $transactions = $receipt->transactions;
         return view('testing.controller_testing',[
             'receipt' => $receipt,

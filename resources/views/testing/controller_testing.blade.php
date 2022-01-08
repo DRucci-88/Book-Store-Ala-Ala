@@ -6,7 +6,7 @@
 
 <h1>Receipt Model</h1>
 <h3>{{ $receipt->date }}</h3>
-<p>{{ $receipt->user->name }}</p>
+<p>{{ $receipt->user }}</p>
 <ul>
   @foreach($receipt->transactions as $transaction)
     <li>{{ $transaction->price * $transaction->quantity }}</li>
