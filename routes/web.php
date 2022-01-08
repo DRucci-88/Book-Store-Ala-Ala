@@ -16,14 +16,11 @@ Route::get('/', [HomeController::class, 'index']);
 /* Book details page is separated based on user */
 /* End of All Users */
 
-/* Authenticated Users (admin & Member) */
-Route::get('/profile', function () {
-    return view('auth/profile');
-});
-
+// AUTHENTICATED Users (admin & Member)
+Route::get('/profile', [AuthController::class, 'changeProfile']);
+Route::post('/profile', [AuthController::class, 'updateProfile']);
 Route::get('/profile/password', [AuthController::class, 'changePassword'])->name('change_password');
 Route::post('/profile/password', [AuthController::class, 'updatePassword'])->name('update_password');
-
 Route::post('/logout', [AuthController::class, 'logout']);
 /* End of Authenticated Users */
 

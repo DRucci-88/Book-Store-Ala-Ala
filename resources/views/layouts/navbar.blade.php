@@ -27,7 +27,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownAccount" role="button"
                  data-bs-toggle="dropdown" aria-expanded="false">
-                Hello, Admin
+                Hello, {{ auth()->user()['name'] }}
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownAccount">
                 <li><a class="dropdown-item" href="/profile">Profile</a></li>
@@ -57,7 +57,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownAccount" role="button"
                  data-bs-toggle="dropdown" aria-expanded="false">
-                Hello, Member
+                Hello, {{ auth()->user()['name'] }}
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownAccount">
                 <li><a class="dropdown-item" href="/profile">Profile</a></li>
