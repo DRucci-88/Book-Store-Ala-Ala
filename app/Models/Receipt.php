@@ -14,6 +14,8 @@ class Receipt extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     public function transactions(): HasMany
     {
         return $this->hasMany(Transaction::class);

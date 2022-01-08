@@ -56,6 +56,8 @@ Route::get('/cart/{book:id}', [HomeController::class, 'show']);
 Route::post('/cart/{book:id}', [OrderController::class, 'update']);
 Route::post('/cart/r/{book:id}', [OrderController::class, 'destroy']);
 
+Route::post('/checkout', [OrderController::class, 'store']);
+
 Route::get('/history', [OrderController::class, 'create']);
 Route::get('/history/{receipt:id}', [OrderController::class, 'show']);
 /* End of Member */

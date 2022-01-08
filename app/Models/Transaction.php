@@ -10,6 +10,8 @@ class Transaction extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     public function receipt(): BelongsTo
     {
         return $this->belongsTo(Receipt::class);

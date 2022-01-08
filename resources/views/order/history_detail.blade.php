@@ -16,56 +16,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($transactions as $transaction)
-                            <tr>
-                                <td>{{ $transaction->book()->name }}</td>
-                                <td>Josh Green</td>
-                                <td>IDR 58800</td>
-                                <td>1 book</td>
-                                <td>IDR 58800</td>
-                                <td>
-                                    <div class="d-grid gap-2 d-md-block">
-                                        <a class="btn btn-secondary" href="/book/id">View Book Detail</a>
-                                    </div>
-                                </td>
-                            </tr>
-                        @endforeach
-                        <tr>
-                            <td>The Fault in Our Stars</td>
-                            <td>Josh Green</td>
-                            <td>IDR 58800</td>
-                            <td>1 book</td>
-                            <td>IDR 58800</td>
-                            <td>
-                                <div class="d-grid gap-2 d-md-block">
-                                    <a class="btn btn-secondary" href="/book/id">View Book Detail</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Lord of the Flies</td>
-                            <td>William Golding</td>
-                            <td>IDR 175300</td>
-                            <td>1 book</td>
-                            <td>IDR 175300</td>
-                            <td>
-                                <div class="d-grid gap-2 d-md-block">
-                                    <a class="btn btn-secondary" href="/book/id">View Book Detail</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Harry Potter series</td>
-                            <td>J.K. Rowling</td>
-                            <td>IDR 73700</td>
-                            <td>2 books</td>
-                            <td>IDR 147400</td>
-                            <td>
-                                <div class="d-grid gap-2 d-md-block">
-                                    <a class="btn btn-secondary" href="/book/id">View Book Detail</a>
-                                </div>
-                            </td>
-                        </tr>
+                        @if ($transactions)
+                            @foreach ($transactions as $transaction)
+                                <tr>
+                                    <td>{{ $transaction->book->name }}</td>
+                                    <td>{{ $transaction->book->author }}</td>
+                                    <td>IDR {{ $transaction->price }}</td>
+                                    <td>{{ $transaction->quantity }} book<?= $transaction->quantity > 1 ? 's' : '' ?></td>
+                                    <td>IDR {{ $transaction->price * $transaction->quantity }}</td>
+                                    <td>
+                                        <div class="d-grid gap-2 d-md-block">
+                                            <a class="btn btn-secondary" href="/book/{{ $transaction->book->id }}">View Book Detail</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
                 <h6 class="mb-3">Grand Total: IDR 299900</h6>
