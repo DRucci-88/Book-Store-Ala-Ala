@@ -2,7 +2,7 @@
 
 @section('content')
   <style>
-    span{
+    span {
       color: red;
     }
   </style>
@@ -93,14 +93,18 @@
               <td>{{ $book->synopsis }}</td>
               <td>
                 @foreach( $book->genres as $genre)
-                {{ $genre->name }}
+                  {{ $genre->name }}
                 @endforeach
               </td>
-              <td>IDR 1000</td>
+              <td>Rp. {{ $book->price }}</td>
               <td>
                 <div class="d-grid gap-2 d-md-block">
                   <a href="/book/{{ $book->id }}/admin" class="btn btn-secondary">View Detail</a>
-                  <a href="" class="btn btn-danger">Delete</a>
+                  <form action="/book/{{ $book->id }}/admin" method="POST" class="d-inline-block">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                  </form>
                 </div>
               </td>
             </tr>

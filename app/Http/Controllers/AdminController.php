@@ -5,15 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\User;
 use App\Models\Genre;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\File;
 
 class AdminController extends Controller
 {
     public function manageBook()
     {
         return view('admin.manage_book', [
-            'books' => Book::all()
+            'books' => Book::orderBy('updated_at','desc')->get()
         ]);
     }
     public function insertBook(Request $req)
@@ -54,7 +56,7 @@ class AdminController extends Controller
             'book' => $book
         ]);
     }
-    public function updateBook(Book $book, Request $req): \Illuminate\Http\RedirectResponse
+    public function updateBook(Book $book, Request $req): RedirectResponse
     {
         //        dd($book);
         //        dd($req->input());
@@ -68,6 +70,17 @@ class AdminController extends Controller
             return back()->with('successMessage', 'Book Update Successfully');
         }
         return back()->with('errorMessage', 'Book Update Failed');
+    }
+
+    public function deleteBook(Book $book)
+    {
+//        dd($book);
+        $cover = $book['cover'];
+        if ($book->delete()) {
+            File::delete(public_path('books/'.$cover));
+            return back()->with('successMessage', 'Book Deleted Successfully');
+        }
+        return back()->with('errorMessage', 'Book Delete Failed');
     }
 
     // Manage Genre Page

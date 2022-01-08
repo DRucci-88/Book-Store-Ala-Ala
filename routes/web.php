@@ -33,6 +33,7 @@ Route::get('/admin/book', [AdminController::class, 'manageBook']);
 Route::post('/admin/book', [AdminController::class, 'insertBook']);
 Route::get('/book/{book}/admin', [AdminController::class, 'bookDetail']);
 Route::post('/book/{book}/admin', [AdminController::class, 'updateBook']);
+Route::delete('book/{book}/admin', [AdminController::class, 'deleteBook']);
 
 Route::get('/admin/genre', [AdminController::class, 'manageGenre']);
 Route::post('/admin/genre', [AdminController::class, 'addGenre']);
