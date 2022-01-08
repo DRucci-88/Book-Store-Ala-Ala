@@ -5,14 +5,14 @@
     <div class="container my-5 flex-fill">
         <div class="row justify-content-center">
             <div class="col-md-11">
-                <form action="/user/{user_id}">
+                <form action="{{route('update_password')}}" id="" method="post">
                     <div class="card">
                         <div class="card-body">
                             <h3>Change Password</h3>
                             <div class="row mb-3">
                                 <label class="col-sm-6 col-form-label">Old Password</label>
                                 <div class="col-sm-6">
-                                    <input type="password" class="form-control" name="old_password" placeholder="********">
+                                    <input type="password" class="form-control" id="old_password" name="old_password" placeholder="********">
                                 </div>
                             </div>
                             <div class="row mb-3">

@@ -17,10 +17,10 @@ Route::get('/', [HomeController::class,'index']);
 
 /* Authenticated Users (admin & Member) */
 Route::get('/profile', function () {
-    return view('member/profile');
+    return view('auth/profile');
 });
 Route::get('/profile/password', function () {
-    return view('member/password');
+    return view('auth/password');
 });
 
 Route::post('/logout', [AuthController::class, 'store']);
@@ -71,3 +71,7 @@ Route::post('/login', [AuthController::class, 'authenticate']);
 Route::get('/register', [AuthController::class, 'register']);
 Route::post('/register', [AuthController::class, 'store']);
 /* End of Guest */
+
+
+Route::get('/profile/password',[AuthController::class, 'changePassword'])->name('change_password');
+Route::post('/profile/password',[AuthController::class, 'updatePassword'])->name('update_password');
