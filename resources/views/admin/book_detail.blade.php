@@ -2,12 +2,29 @@
 
 @section('content')
 
+  {{--  ADMIN--}}
+
   <div class="container my-5 flex-fill">
     <div class="row justify-content-center">
       <div class="col-md-11">
+
+        @if ( session()->has('successMessage'))
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('successMessage') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        @endif
+
+        @if ( session()->has('errorMessage'))
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('errorMessage') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        @endif
+
         <form action="/book/{{ $book->id }}/admin" method="POST">
           @csrf
-{{--          Hidden Input--}}
+          {{--          Hidden Input--}}
           <input value="{{ $book->cover }}" name="oldCover" hidden>
 
           <div class="card">
@@ -32,13 +49,13 @@
                 </div>
               </div>
 
-              <label for="cars">Choose a car:</label>
-              <select name="cars" id="cars" multiple>
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="opel">Opel</option>
-                <option value="audi">Audi</option>
-              </select>
+              {{--              <label for="cars">Choose a car:</label>--}}
+              {{--              <select name="cars" id="cars" multiple>--}}
+              {{--                <option value="volvo">Volvo</option>--}}
+              {{--                <option value="saab">Saab</option>--}}
+              {{--                <option value="opel">Opel</option>--}}
+              {{--                <option value="audi">Audi</option>--}}
+              {{--              </select>--}}
 
               <div class="row mb-3">
                 <label class="col-sm-5 col-form-label">Genre(s)</label>

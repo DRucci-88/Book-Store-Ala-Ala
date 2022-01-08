@@ -8,35 +8,35 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Symfony\Component\HttpFoundation\Cookie;
 
 class AuthController extends Controller
 {
-    // Default method, show login form
-    public function index()
-    {
-        return $this->login();
-    }
 
     // Show login form
     public function login(Request $request)
     {
-        $value = $request->cookie('email');
-        echo $value;
+        $email = $request->cookie('email');
+        echo $email;
         return view('auth.login');
     }
 
     // Handle login authentication
     public function authenticate(Request $request): \Illuminate\Http\RedirectResponse
     {
+//        dd($request->input());
+
         $credentials = $request->validate([
             'email' => ['required'],
             'password' => ['required']
         ]);
-        if ($request['rememberMe']){
-            $minute=5;
-            $response=new Response();
-            $response->withCookie(cookie('email',$request['email'],$minute));
-            $response->withCookie(cookie('password',$request['password'],$minute));
+        if ($request['rememberMe'] === 'on'){
+            $minutes = 5;
+            cookie('email', $request['email'], $minutes);
+            cookie('password', $request['password'], $minutes);
+//            $response = new Response();
+//            $response->withCookie(cookie('email',$request['email'],$minute));
+//            $response->withCookie(cookie('password',$request['password'],$minute));
         }
 
         if (Auth::attempt($credentials)) {

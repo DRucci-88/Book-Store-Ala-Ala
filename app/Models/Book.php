@@ -9,6 +9,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @method static create(string[] $array)
+ * @property mixed $name
+ * @property mixed $author
+ * @property mixed $price
+ * @property mixed $synopsis
+ * @property mixed $cover
  */
 class Book extends Model
 {
@@ -16,6 +21,7 @@ class Book extends Model
 
     //    protected $primaryKey = 'id';
     protected $guarded = ['id'];
+
 
     public function scopeFilter($query, $search)
     {

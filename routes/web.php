@@ -39,7 +39,6 @@ Route::get('admin/genre', function () {
 Route::get('admin/genre/id', function () {
     return view('admin/genre_detail');
 });
-
 Route::get('admin/user', function () {
     return view('admin/manage_user');
 });
