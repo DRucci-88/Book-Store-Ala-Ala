@@ -5,7 +5,7 @@
     <div class="container my-5 flex-fill">
         <div class="row justify-content-center">
             <div class="col-md-11">
-                <form action="/genre" method="POST">
+                <form action="/admin/genre" method="POST">
                     @csrf
                     <div class="card">
                         <div class="card-body">
@@ -13,7 +13,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-6 col-form-label">Name</label>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" name="name">
+                                    <input type="text" class="form-control" name="name" required>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary col-sm-4">Insert</button>
@@ -28,45 +28,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Genre1</td>
-                            <td>
-                                <div class="d-grid gap-2 d-md-block">
-                                    <a href="/genre/{genre_id}" class="btn btn-secondary">View Detail</a>
-                                    <form action="/genre/{genre_id}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger" type="submit">Delete</button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Genre2</td>
-                            <td>
-                                <div class="d-grid gap-2 d-md-block">
-                                    <a href="/genre/{genre_id}" class="btn btn-secondary">View Detail</a>
-                                    <form action="/genre/{genre_id}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger" type="submit">Delete</button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Genre3</td>
-                            <td>
-                                <div class="d-grid gap-2 d-md-block">
-                                    <a href="/book/{book_id}" class="btn btn-secondary">View Detail</a>
-                                    <form action="/book/{book_id}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger" type="submit">Delete</button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
+                        @if ($genres)
+                            @foreach ($genres as $genre)
+                                <tr>
+                                    <td>{{ $genre->name }}</td>
+                                    <td>
+                                        <div class="d-grid gap-2 d-md-block">
+                                            <a href="/genre/{{ $genre->id }}/admin" class="btn btn-secondary">View Detail</a>
+                                            <form action="/genre/{{ $genre->id }}/admin" method="POST" class="d-inline-block">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-danger" type="submit">Delete</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>

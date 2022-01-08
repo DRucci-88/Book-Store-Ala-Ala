@@ -33,12 +33,12 @@ Route::get('/admin/book', [AdminController::class, 'manageBook']);
 Route::get('/book/{book}/admin', [AdminController::class, 'bookDetail']);
 Route::post('/book/{book}/admin', [AdminController::class, 'updateBook']);
 
-Route::get('admin/genre', function () {
-    return view('admin/manage_genre');
-});
-Route::get('admin/genre/id', function () {
-    return view('admin/genre_detail');
-});
+Route::get('/admin/genre', [AdminController::class, 'manageGenre']);
+Route::post('/admin/genre', [AdminController::class, 'addGenre']);
+Route::get('/genre/{genre}/admin', [AdminController::class, 'genreDetail']);
+Route::post('/genre/{genre}/admin', [AdminController::class, 'updateGenre']);
+Route::delete('/genre/{genre}/admin', [AdminController::class, 'deleteGenre']);
+
 Route::get('admin/user', function () {
     return view('admin/manage_user');
 });

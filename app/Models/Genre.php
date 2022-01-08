@@ -11,7 +11,9 @@ class Genre extends Model
 {
     use HasFactory;
 
-//    protected $primaryKey = 'id';
+    protected $guarded = ['id'];
+
+    //    protected $primaryKey = 'id';
 
     public function Books(): BelongsToMany
     {
