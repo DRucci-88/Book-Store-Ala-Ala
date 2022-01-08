@@ -33,7 +33,7 @@ Route::post('/logout', [AuthController::class, 'logout']);
 
 // MIDDLEWARE GROUP FOR ADMIN
 Route::group(['middleware'=>['adminProtectedPage']], static function(){
-    Route::get('/admin', [AdminController::class, 'manageBook']);
+
     // ADMIN BOOK
     Route::get('/admin/book', [AdminController::class, 'manageBook']);
     Route::post('/admin/book', [AdminController::class, 'insertBook']);
