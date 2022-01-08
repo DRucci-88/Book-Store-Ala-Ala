@@ -80,10 +80,10 @@ class AuthController extends Controller
     public function updatePassword(Request $request)
     {
         if (!(Hash::check($request->get('old_password'), Auth::user()->password))) {
-            return back()->with('error', 'Your current password does not match');
+            return back()->with('errorMessage', 'Your current password does not match');
         }
         if (strcmp($request->get('old_password'), $request->get('new_password')) == 0) {
-            return back()->with('error', 'Your current password cannot be same with the new password');
+            return back()->with('errorMessage', 'Your current password cannot be same with the new password');
         }
         $request->validate([
             'old_password' => 'required',
@@ -92,7 +92,7 @@ class AuthController extends Controller
         $user = Auth::user();
         $user->password = bcrypt($request->get('new_password'));
         $user->save();
-        return back()->with('message', 'Password changed successfully');
+        return back()->with('successMessage', 'Password changed successfully');
     }
 }
 
