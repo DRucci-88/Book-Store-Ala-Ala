@@ -17,9 +17,9 @@
                 Manage
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownManage">
-                <li><a class="dropdown-item" href="/book">Book</a></li>
-                <li><a class="dropdown-item" href="/genre">Genre</a></li>
-                <li><a class="dropdown-item" href="/user">User</a></li>
+                <li><a class="dropdown-item" href="/admin/book">Book</a></li>
+                <li><a class="dropdown-item" href="/admin/genre">Genre</a></li>
+                <li><a class="dropdown-item" href="/admin/user">User</a></li>
               </ul>
             </li>
           </div>

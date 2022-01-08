@@ -5,32 +5,43 @@
   <div class="container my-5 flex-fill">
     <div class="row justify-content-center">
       <div class="col-md-11">
-        <form action="/book/{book_id}" method="POST">
+        <form action="/book/{{ $book->id }}/admin" method="POST">
           @csrf
-          @method('PUT')
+{{--          Hidden Input--}}
+          <input value="{{ $book->cover }}" name="oldCover" hidden>
+
           <div class="card">
             <div class="card-body">
-              <h3>Asdfghjkl's Book Detail</h3>
+              <h3>{{ $book->name }}'s Book Detail</h3>
               <div class="row mb-3">
-                <label class="col-sm-6 col-form-label">Name</label>
+                <label class="col-sm-5 col-form-label">Name</label>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" name="name">
+                  <input value="{{ $book->name }}" type="text" class="form-control" name="name">
                 </div>
               </div>
               <div class="row mb-3">
-                <label class="col-sm-6 col-form-label">Author</label>
+                <label class="col-sm-5 col-form-label">Author</label>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" name="author">
+                  <input value="{{ $book->author }}" type="text" class="form-control" name="author">
                 </div>
               </div>
               <div class="row mb-3">
-                <label class="col-sm-6 col-form-label">Synopsis</label>
+                <label class="col-sm-5 col-form-label">Synopsis</label>
                 <div class="col-sm-6">
-                  <textarea type="text" class="form-control" name="synopsis"></textarea>
+                  <textarea type="text" class="form-control" name="synopsis">{{ $book->synopsis }}</textarea>
                 </div>
               </div>
+
+              <label for="cars">Choose a car:</label>
+              <select name="cars" id="cars" multiple>
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="opel">Opel</option>
+                <option value="audi">Audi</option>
+              </select>
+
               <div class="row mb-3">
-                <label class="col-sm-6 col-form-label">Genre(s)</label>
+                <label class="col-sm-5 col-form-label">Genre(s)</label>
                 <div class="row col-sm-6">
                   <div class="col-sm-4">
                     <div class="form-check">
@@ -95,18 +106,24 @@
                 </div>
               </div>
               <div class="row mb-3">
-                <label class="col-sm-6 col-form-label">Price</label>
+                <label class="col-sm-5 col-form-label">Price</label>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" name="price">
+                  <input value="{{ $book->price }}" type="text" class="form-control" name="price">
                 </div>
               </div>
               <div class="row mb-3">
-                <label class="col-sm-6 col-form-label">Cover</label>
+                <label class="col-sm-5 col-form-label">Cover</label>
                 <div class="col-sm-6">
-                  <img class="img-fluid mb-3" src="/books/top_one.jpg" alt="Book Title Cover">
+                  <img class="img-fluid mb-3" src="/books/{{ $book->cover }}" alt="Book Title Cover">
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-5 col-form-label">New Cover</label>
+                <div class="col-sm-6">
                   <input type="file" class="form-control" name="cover">
                 </div>
               </div>
+
               <button type="submit" class="btn btn-primary col-sm-4">Update</button>
             </div>
           </div>

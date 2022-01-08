@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TestingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 // TESTING DEVELOPMENT
@@ -28,24 +29,21 @@ Route::post('/profile/password', [AuthController::class, 'updatePassword'])->nam
 Route::post('/logout', [AuthController::class, 'logout']);
 
 // ADMIN
-Route::get('/book', function () {
-    return view('admin/manage_book');
-});
-Route::get('/book/{book}/admin', function () {
-    return view('admin/book_detail');
-});
+Route::get('/admin/book', [AdminController::class, 'manageBook']);
+Route::get('/book/{book}/admin', [AdminController::class, 'bookDetail']);
+Route::post('/book/{book}/admin', [AdminController::class, 'updateBook']);
 
-Route::get('/genre', function () {
+Route::get('admin/genre', function () {
     return view('admin/manage_genre');
 });
-Route::get('/genre/id', function () {
+Route::get('admin/genre/id', function () {
     return view('admin/genre_detail');
 });
 
-Route::get('/user', function () {
+Route::get('admin/user', function () {
     return view('admin/manage_user');
 });
-Route::get('/user/id', function () {
+Route::get('admin/user/id', function () {
     return view('admin/user_detail');
 });
 
@@ -54,8 +52,8 @@ Route::get('/user/id', function () {
 Route::get('/book/{book}/detail', [HomeController::class, 'show']);
 
 Route::get('/cart', [OrderController::class, 'index']);
+Route::get('/cart/{book:id}', [HomeController::class, 'show']);
 Route::post('/cart/{book:id}', [OrderController::class, 'update']);
-Route::get('/cart/{book:id}', [OrderController::class, 'show']);
 Route::post('/cart/r/{book:id}', [OrderController::class, 'destroy']);
 
 Route::get('/history', [OrderController::class, 'create']);

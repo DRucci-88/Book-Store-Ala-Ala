@@ -47,6 +47,7 @@ class AuthController extends Controller
     // Handle user registration
     public function store(Request $request)
     {
+//        dd($request->input());
         $validatedData = $request->validate([
             'name' => ['required'],
             'email' => ['required', 'email', 'unique:users'],
