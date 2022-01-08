@@ -31,8 +31,10 @@ class AdminController extends Controller
             'price' => ['required', 'numeric', 'min:0', 'max:100000'],
             'cover' => ['required', 'mimes:jpg,png,jpeg', 'max:5048']
         ]);
-
-        $coverName = $req->file('cover')->getClientOriginalName();
+        $coverName = '';
+        if($req->file('cover')){
+            $coverName = time().'_'.$req->file('cover')->getClientOriginalName();
+        }
 
         $respond = Book::create([
             'name' => $req['name'],
@@ -58,21 +60,36 @@ class AdminController extends Controller
     }
     public function updateBook(Book $book, Request $req): RedirectResponse
     {
-        //        dd($book);
-        //        dd($req->input());
+//        dd($req->input());
+//        dd($req->file('cover'));
+//        dd($req['cover']);
+        $req->validate([
+            'name' => ['required', 'string', 'max:250'],
+            'author' => ['required', 'string', 'max:250'],
+            'synopsis' => ['required', 'string'],
+            'price' => ['required', 'numeric', 'min:0', 'max:100000'],
+            'cover' => ['mimes:jpg,png,jpeg', 'max:5048']
+        ]);
+        $coverName = $req['oldCover'];
+        if($req->file('cover')){
+            $coverName = time().'_'.$req->file('cover')->getClientOriginalName();
+            $req->file('cover')->move(public_path('books'), $coverName);
+            File::delete(public_path('books/'.$req['oldCover']));
+        }
+
         $book->name = $req['name'];
         $book->author = $req['author'];
         $book->price = $req['price'];
         $book->synopsis = $req['synopsis'];
-        $book->cover =  $req['cover'] ?? $req['oldCover'];
+        $book->cover = $coverName;
 
         if ($book->save()) {
-            return back()->with('successMessage', 'Book Update Successfully');
+            return redirect('/admin/book')->with('successMessage', 'Book Update Successfully');
         }
         return back()->with('errorMessage', 'Book Update Failed');
     }
 
-    public function deleteBook(Book $book)
+    public function deleteBook(Book $book): RedirectResponse
     {
 //        dd($book);
         $cover = $book['cover'];
@@ -101,7 +118,7 @@ class AdminController extends Controller
     }
 
     // Handle Add Genre
-    public function addGenre(Request $req)
+    public function addGenre(Request $req): RedirectResponse
     {
         $validatedData = $req->validate([
             'name' => 'required|unique:genres'
@@ -114,7 +131,7 @@ class AdminController extends Controller
     }
 
     // Handle Update Genre
-    public function updateGenre(Genre $genre, Request $req)
+    public function updateGenre(Genre $genre, Request $req): RedirectResponse
     {
         $validatedData = $req->validate([
             'name' => 'required|unique:genres'
@@ -153,7 +170,7 @@ class AdminController extends Controller
     }
 
     // Handle Update User
-    public function updateUser(User $user, Request $req)
+    public function updateUser(User $user, Request $req): RedirectResponse
     {
         $validatedData = $req->validate([
             'name' => 'required',

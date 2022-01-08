@@ -22,10 +22,9 @@
           </div>
         @endif
 
-        <form action="/book/{{ $book->id }}/admin" method="POST">
+        <form action="/book/{{ $book->id }}/admin" method="POST" enctype="multipart/form-data">
           @csrf
-          {{--          Hidden Input--}}
-          <input value="{{ $book->cover }}" name="oldCover" hidden>
+
 
           <div class="card">
             <div class="card-body">
@@ -48,14 +47,6 @@
                   <textarea type="text" class="form-control" name="synopsis">{{ $book->synopsis }}</textarea>
                 </div>
               </div>
-
-              {{--              <label for="cars">Choose a car:</label>--}}
-              {{--              <select name="cars" id="cars" multiple>--}}
-              {{--                <option value="volvo">Volvo</option>--}}
-              {{--                <option value="saab">Saab</option>--}}
-              {{--                <option value="opel">Opel</option>--}}
-              {{--                <option value="audi">Audi</option>--}}
-              {{--              </select>--}}
 
               <div class="row mb-3">
                 <label class="col-sm-5 col-form-label">Genre(s)</label>
@@ -129,7 +120,7 @@
                 </div>
               </div>
               <div class="row mb-3">
-                <label class="col-sm-5 col-form-label">Cover</label>
+                <label class="col-sm-5 col-form-label">Old Cover</label>
                 <div class="col-sm-6">
                   <img class="img-fluid mb-3" src="/books/{{ $book->cover }}" alt="Book Title Cover">
                 </div>
@@ -140,7 +131,8 @@
                   <input type="file" class="form-control" name="cover">
                 </div>
               </div>
-
+              {{-- Hidden Input--}}
+              <input value="{{ $book->cover }}" name="oldCover" hidden>
               <button type="submit" class="btn btn-primary col-sm-4">Update</button>
             </div>
           </div>
