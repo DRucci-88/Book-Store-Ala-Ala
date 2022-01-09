@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\BookGenre;
 use App\Models\User;
 use App\Models\Genre;
 use Illuminate\Http\RedirectResponse;
@@ -69,6 +70,7 @@ class AdminController extends Controller
             'author' => ['required', 'string', 'max:250'],
             'synopsis' => ['required', 'string'],
             'price' => ['required', 'numeric', 'min:0', 'max:100000'],
+            'genres' => ['required', 'string'],
             'cover' => ['mimes:jpg,png,jpeg', 'max:5048']
         ]);
         $coverName = $req['oldCover'];
@@ -77,6 +79,11 @@ class AdminController extends Controller
             $req->file('cover')->move(public_path('books'), $coverName);
             File::delete(public_path('books/'.$req['oldCover']));
         }
+
+        $genres = explode('_',$req['genres']);
+        BookGenre::where('book_id', $book->id)->delete();
+
+//        dd($genres);
 
         $book->name = $req['name'];
         $book->author = $req['author'];
