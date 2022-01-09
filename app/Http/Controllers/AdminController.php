@@ -82,9 +82,13 @@ class AdminController extends Controller
 
         $genres = explode('_',$req['genres']);
         BookGenre::where('book_id', $book->id)->delete();
-
+        foreach ($genres as $genre){
+            BookGenre::create([
+                'book_id' => $book->id,
+                'genre_id' => $genre
+            ]);
+        }
 //        dd($genres);
-
         $book->name = $req['name'];
         $book->author = $req['author'];
         $book->price = $req['price'];

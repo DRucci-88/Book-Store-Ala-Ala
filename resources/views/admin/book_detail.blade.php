@@ -61,6 +61,12 @@
 
               Genre Input<input value="" type="text" id="genres" class="form-control" name="genres">
 
+              @if( $book->genres !== null)
+                @foreach($book->genres as $genre)
+                  <span>{{ $genre->name }} - </span>
+                @endforeach
+              @endif
+
               <div class="row mb-3">
                 <label class="col-sm-5 col-form-label">Price</label>
                 <div class="col-sm-6">
@@ -92,6 +98,7 @@
   </div>
 
   <script>
+      console.log(@json($book->genres));
       const genreInput = document.getElementById('genres');
       let genreArr = [];
       const checkGenres = (idGenre) => {
