@@ -7,21 +7,7 @@
   <div class="container my-5 flex-fill">
     <div class="row justify-content-center">
       <div class="col-md-11">
-
-        @if ( session()->has('successMessage'))
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('successMessage') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        @endif
-
-        @if ( session()->has('errorMessage'))
-          <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            {{ session('errorMessage') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        @endif
-
+        
         <form action="/book/{{ $book->id }}/admin" method="POST" enctype="multipart/form-data">
           @csrf
 

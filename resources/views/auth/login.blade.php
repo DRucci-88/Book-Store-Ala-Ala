@@ -4,18 +4,6 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-sm-4">
-        @if ( session()->has('successMessage'))
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('successMessage') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        @endif
-        @if ( session()->has('errorMessage'))
-          <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            {{ session('errorMessage') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        @endif
         <form action="/login" method="POST" class="card shadow p-3">
           @csrf
           <div class="card-body">

@@ -44,12 +44,12 @@
                     <div class="col-sm-4">
                       <div class="input-group">
                         <span class="input-group-text">Quantity</span>
-                        <input type="number" min="1" class="form-control" name="quantity" placeholder="e.g. 1" value="1"
+                        <input type="number" min="1" class="form-control" name="quantity" placeholder="e.g. 1" value="{{ $book->quantity > 0 ? $book->quantity : 1  }}"
                                required>
                       </div>
                     </div>
                     <div class="col-sm text-end">
-                      <button type="submit" class="btn btn-primary">Add to Cart/Update</button>
+                      <button type="submit" class="btn btn-primary">{{ $book->quantity > 0 ? 'Update' : 'Add to Cart' }}</button>
                     </div>
                   </form>
                 @endauth

@@ -20,7 +20,7 @@
                         @if ($transactions)
                             @foreach ($transactions as $transaction)
                                 <?php 
-                                    $subtotal = $transaction->price * $transaction->quantity
+                                    $subtotal = $transaction->price * $transaction->quantity;
                                     $grandtotal += (int)$subtotal; 
                                 ?>
                                 <tr>

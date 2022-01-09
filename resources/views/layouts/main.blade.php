@@ -16,6 +16,18 @@
 </head>
 <body class="d-flex flex-column min-vh-100 justify-content-between">
 @include('layouts.navbar')
+@if ( session()->has('successMessage'))
+  <div class="alert alert-success alert-dismissible fade show position-fixed col-11 mx-5" style="margin-top: 5rem" role="alert">
+    {{ session('successMessage') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+@endif
+@if ( session()->has('errorMessage'))
+  <div class="alert alert-danger alert-dismissible fade show position-fixed col-11 mx-5" style="margin-top: 5rem" role="alert">
+    {{ session('errorMessage') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+@endif
 
 @yield('content')
 

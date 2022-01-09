@@ -22,9 +22,20 @@ class HomeController extends Controller
     }
 
     // Book detail (Member & Guest)
-    public function show(Book $book)
+    public function show(Book $book, Request $request)
     {
         //        dd($book);
+        $items = $request->session()->get('items');
+        if ($items) {
+            foreach ($items as $item) {
+                if ($item->id === $book->id) {
+                    $book->quantity = $item->quantity;
+                } else {
+                    $book->quantity = 0;
+                }
+            }
+        }
+
         return view('home.book_detail', [
             'book' => $book
         ]);
