@@ -13,6 +13,7 @@ Route::get('/controllerTesting', [TestingController::class, 'controllerTesting']
 
 // FORBIDDEN
 Route::view('/not-admin', 'forbidden.not_admin');
+Route::view('/admin-cannot-order','forbidden.admin_cannot_order');
 //Route::
 
 // HOME
@@ -34,8 +35,7 @@ Route::post('/profile/password', [AuthController::class, 'updatePassword'])->nam
 Route::post('/logout', [AuthController::class, 'logout']);
 
 // MIDDLEWARE GROUP FOR ADMIN
-Route::group(['middleware'=>['adminProtectedPage']], static function(){
-
+Route::middleware([\App\Http\Middleware\AdminCheck::class])->group(function (){
     // ADMIN BOOK
     Route::get('/admin/book', [AdminController::class, 'manageBook']);
     Route::post('/admin/book', [AdminController::class, 'insertBook']);
@@ -57,20 +57,20 @@ Route::group(['middleware'=>['adminProtectedPage']], static function(){
     Route::delete('/user/{user}/admin', [AdminController::class, 'deleteUser']);
 });
 
-
 /* Member */
-// Fix route with middleware
+Route::middleware([\App\Http\Middleware\MemberCheck::class])->group(function () {
+    Route::get('/cart', [OrderController::class, 'index']);
+    Route::get('/cart/{book:id}', [HomeController::class, 'show']);
+    Route::post('/cart/{book:id}', [OrderController::class, 'update']);
+    Route::post('/cart/r/{book:id}', [OrderController::class, 'destroy']);
+
+    Route::post('/checkout', [OrderController::class, 'store']);
+
+    Route::get('/history', [OrderController::class, 'create']);
+    Route::get('/history/{receipt:id}', [OrderController::class, 'show']);
+});
 
 
-Route::get('/cart', [OrderController::class, 'index']);
-Route::get('/cart/{book:id}', [HomeController::class, 'show']);
-Route::post('/cart/{book:id}', [OrderController::class, 'update']);
-Route::post('/cart/r/{book:id}', [OrderController::class, 'destroy']);
-
-Route::post('/checkout', [OrderController::class, 'store']);
-
-Route::get('/history', [OrderController::class, 'create']);
-Route::get('/history/{receipt:id}', [OrderController::class, 'show']);
 /* End of Member */
 
 /* Guest */

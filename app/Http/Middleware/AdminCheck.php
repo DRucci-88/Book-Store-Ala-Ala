@@ -16,9 +16,7 @@ class AdminCheck
      */
     public function handle(\Illuminate\Http\Request $request, Closure $next)
     {
-//        if (auth()->user()->role->id === 1) {
-//            return $next($request);
-//        }
+        // Validate only Admin
         if(Auth::user() && Auth::user()->role->id === 1) {
             return $next($request);
         }
