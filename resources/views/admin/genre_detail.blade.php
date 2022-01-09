@@ -37,24 +37,6 @@
                                         </tr>
                                     @endforeach
                                 @endif
-                                <tr>
-                                    <td>Book2</td>
-                                    <td>
-                                        <a href="/book/{book_id}" class="btn btn-secondary">View Book Detail</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Book3</td>
-                                    <td>
-                                        <a href="/book/{book_id}" class="btn btn-secondary">View Book Detail</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Book4</td>
-                                    <td>
-                                        <a href="/book/{book_id}" class="btn btn-secondary">View Book Detail</a>
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>

@@ -46,8 +46,11 @@
                 <div class="col-sm-4">
                   @foreach($genres as $genre)
                     <div class="form-group form-check" onclick="checkGenres({{ $genre->id }})">
-                      <input class="form-check-input" type="checkbox"
-                             value="{{ $genre->id }}" id="check{{ $genre->id }}">
+                      <input class="form-check-input" type="checkbox" name="genres"
+                             value="{{ $genre->id }}" id="check{{ $genre->id }}" 
+                             @foreach ($book->genres as $bookgenre)
+                                 <?= $genre->name == $bookgenre->name ? 'checked' : ''; ?>
+                             @endforeach>
 
                       <label class="form-check-label">
                         {{ $genre->name }}
@@ -100,6 +103,12 @@
       console.log(@json($book->genres));
       const genreInput = document.getElementById('genres');
       let genreArr = [];
+      window.onload = () => {
+        (@json($book->genres)).forEach(genre => {
+          genreArr.push(genre['id']);
+        });
+      }
+      console.log(genreArr);
       const checkGenres = (idGenre) => {
           const check = document.getElementById('check' + idGenre);
           if (genreArr.includes(idGenre) === false) {
