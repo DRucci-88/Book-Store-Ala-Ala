@@ -18,7 +18,7 @@ class AdminController extends Controller
             'books' => Book::orderBy('updated_at','desc')->get()
         ]);
     }
-    public function insertBook(Request $req)
+    public function insertBook(Request $req): RedirectResponse
     {
 //        dd($req->input());
 //        dd($req->file());

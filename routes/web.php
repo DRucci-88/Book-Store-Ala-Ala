@@ -13,9 +13,11 @@ Route::get('/controllerTesting', [TestingController::class, 'controllerTesting']
 
 // FORBIDDEN
 Route::view('/not-admin', 'forbidden.not_admin');
+//Route::
 
 // HOME
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/book/{book}', [HomeController::class, 'show']);
 
 /* Book details page is separated based on user */
 /* End of All Users */
@@ -58,7 +60,7 @@ Route::group(['middleware'=>['adminProtectedPage']], static function(){
 
 /* Member */
 // Fix route with middleware
-Route::get('/book/{book}', [HomeController::class, 'show']);
+
 
 Route::get('/cart', [OrderController::class, 'index']);
 Route::get('/cart/{book:id}', [HomeController::class, 'show']);

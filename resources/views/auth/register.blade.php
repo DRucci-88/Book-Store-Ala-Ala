@@ -54,10 +54,9 @@
   <script>
       const x = document.getElementById("password");
       const y = document.getElementById("confirmPassword");
-
-      function showPassword() {
+      const checkPassword = document.getElementById('exampleCheck1');
+      const showPassword = () => {
           console.log('show password');
-          let checkPassword = document.getElementById('exampleCheck1');
           if(checkPassword.checked === true){
               x.type = "text";
               y.type = "text";
@@ -65,16 +64,6 @@
           else{
               x.type = "password";
               y.type = "password";
-          }
-
-      }
-
-      function showConfirmPassword() {
-          let x = document.getElementById("confirmPassword");
-          if (x.type === "password") {
-              x.type = "text";
-          } else {
-              x.type = "password";
           }
       }
   </script>
