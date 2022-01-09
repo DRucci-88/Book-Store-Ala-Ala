@@ -5,7 +5,7 @@
   {{--  ADMIN--}}
 
   <style>
-    span{
+    span {
       color: red;
     }
   </style>
@@ -47,27 +47,28 @@
                   @foreach($genres as $genre)
                     <div class="form-group form-check" onclick="checkGenres({{ $genre->id }})">
                       <input class="form-check-input" type="checkbox" name="genres"
-                             value="{{ $genre->id }}" id="check{{ $genre->id }}" 
-                             @foreach ($book->genres as $bookgenre)
-                                 <?= $genre->name == $bookgenre->name ? 'checked' : ''; ?>
-                             @endforeach>
-
+                             value="{{ $genre->id }}" id="check{{ $genre->id }}"
+                      @foreach ($book->genres as $bookGenre)
+                        {{ $genre->name === $bookGenre->name ? 'checked' : '' }}
+                      @endforeach
+                      >
                       <label class="form-check-label">
                         {{ $genre->name }}
                       </label>
                     </div>
                   @endforeach
-                    <span>{{ $errors->first('genres') }}</span>
+                  <span>{{ $errors->first('genres') }}</span>
                 </div>
               </div>
 
-              Genre Input<input value="" type="text" id="genres" class="form-control" name="genres">
+{{--              Genre Input--}}
+              <input value="" type="text" id="genres" class="form-control" name="genres" hidden>
 
-              @if( $book->genres !== null)
-                @foreach($book->genres as $genre)
-                  <span>{{ $genre->name }} - </span>
-                @endforeach
-              @endif
+{{--              @if( $book->genres !== null)--}}
+{{--                @foreach($book->genres as $genre)--}}
+{{--                  <span>{{ $genre->name }} - </span>--}}
+{{--                @endforeach--}}
+{{--              @endif--}}
 
               <div class="row mb-3">
                 <label class="col-sm-5 col-form-label">Price</label>
@@ -104,9 +105,9 @@
       const genreInput = document.getElementById('genres');
       let genreArr = [];
       window.onload = () => {
-        (@json($book->genres)).forEach(genre => {
-          genreArr.push(genre['id']);
-        });
+          (@json($book->genres)).forEach(genre => {
+              genreArr.push(genre['id']);
+          });
       }
       console.log(genreArr);
       const checkGenres = (idGenre) => {

@@ -56,7 +56,8 @@
                 </div>
               </div>
 
-              Genre Input<input value="" type="text" id="genres" class="form-control" name="genres">
+{{--              Genre Input--}}
+              <input value="" type="text" id="genres" class="form-control" name="genres" hidden>
 
               <div class="row mb-3">
                 <label class="col-sm-5 col-form-label">Price</label>
