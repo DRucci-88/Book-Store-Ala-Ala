@@ -12,6 +12,14 @@ use App\Models\Transaction;
 
 class TestingController extends Controller
 {
+
+    public function loopTesting()
+    {
+        $genre = [1,2,3,4,5,6,7,8,9,10,11,12,13];
+        $b = array_rand($genre, 6);
+        foreach ($b as $a) echo $a.' ';
+//        dd($b);
+    }
     public function modelTesting()
     {
         return view('testing.model_testing', [

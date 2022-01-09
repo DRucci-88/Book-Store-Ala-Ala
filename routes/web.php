@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 // TESTING DEVELOPMENT
 Route::get('/modelTesting', [TestingController::class, 'modelTesting']);
 Route::get('/controllerTesting', [TestingController::class, 'controllerTesting']);
+Route::get('/loopTesting', [TestingController::class, 'loopTesting']);
 
 // FORBIDDEN
 Route::view('/not-admin', 'forbidden.not_admin');
