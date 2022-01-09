@@ -16,7 +16,6 @@
         <form action="/book/{{ $book->id }}/admin" method="POST"
               enctype="multipart/form-data" onsubmit="convertGenreArr()">
           @csrf
-
           <div class="card">
             <div class="card-body">
               <h3>{{ $book->name }}'s Book Detail</h3>

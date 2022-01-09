@@ -16,7 +16,8 @@ class AdminController extends Controller
     public function manageBook()
     {
         return view('admin.manage_book', [
-            'books' => Book::orderBy('updated_at','desc')->get()
+            'books' => Book::orderBy('updated_at','desc')->get(),
+            'genres' => Genre::all()
         ]);
     }
     public function insertBook(Request $req): RedirectResponse
@@ -30,6 +31,7 @@ class AdminController extends Controller
             'author' => ['required', 'string', 'max:250'],
             'synopsis' => ['required', 'string',],
             'price' => ['required', 'numeric', 'min:0', 'max:100000'],
+            'genres' => ['required', 'string'],
             'cover' => ['required', 'mimes:jpg,png,jpeg', 'max:5048']
         ]);
         $coverName = '';
@@ -44,6 +46,14 @@ class AdminController extends Controller
             'price' => $req['price'],
             'cover' => $coverName
         ]);
+
+        $genres = explode('_',$req['genres']);
+        foreach ($genres as $genre){
+            BookGenre::create([
+                'book_id' => $respond->id,
+                'genre_id' => $genre
+            ]);
+        }
 
         if ($respond){
             $req->file('cover')->move(public_path('books'), $coverName);
@@ -103,10 +113,11 @@ class AdminController extends Controller
 
     public function deleteBook(Book $book): RedirectResponse
     {
-//        dd($book);
+        $bookId = $book['id'];
         $cover = $book['cover'];
         if ($book->delete()) {
             File::delete(public_path('books/'.$cover));
+            BookGenre::where('book_id', $bookId)->delete();
             return back()->with('successMessage', 'Book Deleted Successfully');
         }
         return back()->with('errorMessage', 'Book Delete Failed');
