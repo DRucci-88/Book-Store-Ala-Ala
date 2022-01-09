@@ -54,6 +54,72 @@
               </div>
 
               <div class="row mb-3">
+                <label class="col-sm-5 col-form-label">Genre(s)</label>
+                <div class="row col-sm-6">
+                  <div class="col-sm-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
+                      <label class="form-check-label" for="gridCheck1">
+                        Example checkbox
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
+                      <label class="form-check-label" for="gridCheck1">
+                        Example checkbox
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
+                      <label class="form-check-label" for="gridCheck1">
+                        Example checkbox
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
+                      <label class="form-check-label" for="gridCheck1">
+                        Example checkbox
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
+                      <label class="form-check-label" for="gridCheck1">
+                        Example checkbox
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
+                      <label class="form-check-label" for="gridCheck1">
+                        Example checkbox
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
+                      <label class="form-check-label" for="gridCheck1">
+                        Example checkbox
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
+                      <label class="form-check-label" for="gridCheck1">
+                        Example checkbox
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="genres" value="value_of_checkbox">
+                      <label class="form-check-label" for="gridCheck1">
+                        Example checkbox
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-3">
                 <label class="col-sm-4 col-form-label">Price</label>
                 <div class="col-sm-6">
                   <input type="number" class="form-control" name="price">

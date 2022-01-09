@@ -21,13 +21,12 @@ class DatabaseSeeder extends Seeder
             BookSeeder::class,
             UserSeeder::class,
             RoleSeeder::class,
-
+            GenreSeeder::class
         ]);
 
-        Genre::factory(5)->create();
         Receipt::factory(15)->create();
         Transaction::factory(30)->create();
-        BookGenre::factory(30)->create();
+        BookGenre::factory(60)->create();
 
 
     }

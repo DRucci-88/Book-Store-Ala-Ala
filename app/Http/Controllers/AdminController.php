@@ -55,7 +55,8 @@ class AdminController extends Controller
     {
         //        dd($book);
         return view('admin.book_detail', [
-            'book' => $book
+            'book' => $book,
+            'genres' => Genre::all()
         ]);
     }
     public function updateBook(Book $book, Request $req): RedirectResponse
