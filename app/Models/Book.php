@@ -25,7 +25,6 @@ class Book extends Model
     //    protected $primaryKey = 'id';
     protected $guarded = ['id'];
 
-
     public function scopeFilter($query, $search)
     {
         $query->when($search ?? false, function ($query, $search) {

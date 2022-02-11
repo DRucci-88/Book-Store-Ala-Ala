@@ -39,7 +39,7 @@ class AdminController extends Controller
             $coverName = time().'_'.$req->file('cover')->getClientOriginalName();
         }
 
-        $respond = Book::create([
+        $respond = Book::query()->create([
             'name' => $req['name'],
             'author' => $req['author'],
             'synopsis' => $req['synopsis'],

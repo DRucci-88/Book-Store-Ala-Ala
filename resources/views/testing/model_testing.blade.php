@@ -4,28 +4,28 @@
   }
 </style>
 
-<h1>Transaction Model</h1>
-@foreach($transactions as $transaction)
-  <h3>{{ $transaction->id }}</h3>
-  <p>{{ $transaction->price * $transaction->quantity }}</p>
-  <p>{{ $transaction->book->name }}</p>
-  <p>
-    {{ $transaction->receipt->date }} -
-    {{ $transaction->receipt->user->name }} -
-    {{ $transaction->receipt->user->role->name }}
-  </p>
-@endforeach
+{{--<h1>Transaction Model</h1>--}}
+{{--@foreach($transactions as $transaction)--}}
+{{--  <h3>{{ $transaction->id }}</h3>--}}
+{{--  <p>{{ $transaction->price * $transaction->quantity }}</p>--}}
+{{--  <p>{{ $transaction->book->name }}</p>--}}
+{{--  <p>--}}
+{{--    {{ $transaction->receipt->date }} ---}}
+{{--    {{ $transaction->receipt->user->name }} ---}}
+{{--    {{ $transaction->receipt->user->role->name }}--}}
+{{--  </p>--}}
+{{--@endforeach--}}
 
-<h1>Receipt Model</h1>
-@foreach($receipts as $receipt)
-  <h3>{{ $receipt->date }}</h3>
-  <p>{{ $receipt->user->name }}</p>
-  <ul>
-    @foreach($receipt->transactions as $transaction)
-      <li>{{ $transaction->price * $transaction->quantity }}</li>
-    @endforeach
-  </ul>
-@endforeach
+{{--<h1>Receipt Model</h1>--}}
+{{--@foreach($receipts as $receipt)--}}
+{{--  <h3>{{ $receipt->date }}</h3>--}}
+{{--  <p>{{ $receipt->user->name }}</p>--}}
+{{--  <ul>--}}
+{{--    @foreach($receipt->transactions as $transaction)--}}
+{{--      <li>{{ $transaction->price * $transaction->quantity }}</li>--}}
+{{--    @endforeach--}}
+{{--  </ul>--}}
+{{--@endforeach--}}
 
 {{--<h1>Role Model</h1>--}}
 {{--@foreach($roles as $role)--}}
@@ -49,22 +49,22 @@
 {{--  </ul>--}}
 {{--@endforeach--}}
 
-{{--<h1>Genre Model</h1>--}}
-{{--@foreach($genres as $genre)--}}
-{{--  <h3>{{ $genre->name }}</h3>--}}
-{{--  <ul>--}}
-{{--    @foreach($genre->books as $book)--}}
-{{--      <li>{{ $book->name }}</li>--}}
-{{--    @endforeach--}}
-{{--  </ul>--}}
-{{--@endforeach--}}
+<h1>Genre Model</h1>
+@foreach($genres as $genre)
+  <h3>{{ $genre->name }}</h3>
+  <ul>
+    @foreach($genre->books as $book)
+      <li>{{ $book->name }}</li>
+    @endforeach
+  </ul>
+@endforeach
 
-{{--<h1>Book Model</h1>--}}
-{{--@foreach($books as $book)--}}
-{{--  <h3>{{ $book->name }} , Author {{ $book->author }}</h3>--}}
-{{--  <ul>--}}
-{{--    @foreach($book->genres as $genre)--}}
-{{--      <li>{{ $genre->name }}</li>--}}
-{{--    @endforeach--}}
-{{--  </ul>--}}
-{{--@endforeach--}}
+<h1>Book Model</h1>
+@foreach($books as $book)
+  <h3>{{ $book->name }} , Author {{ $book->author }}</h3>
+  <ul>
+    @foreach($book->genres as $genre)
+      <li>{{ $genre->name }}</li>
+    @endforeach
+  </ul>
+@endforeach

@@ -23,7 +23,8 @@
                                     <div class="d-grid gap-2 d-md-block">
                                         <a href="/user/{{ $user->id }}/admin" class="btn btn-secondary">View Detail</a>
                                         @if ($user->role->id === 2)
-                                            <form action="/user/{{ $user->id }}/admin" method="POST" class="d-inline-block">
+                                            <form action="/user/{{ $user->id }}/admin" method="POST"
+                                                class="d-inline-block">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger" type="submit">Delete</button>

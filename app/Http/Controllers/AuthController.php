@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -72,6 +73,27 @@ class AuthController extends Controller
         User::create($validatedData);
 
         return redirect('/login')->with('successMessage', 'Register successful! Please log in.');
+    }
+
+    public function storeAjax(Request $req): \Illuminate\Http\JsonResponse
+    {
+        $validator = Validator::make($req->all(), [
+            'name' => ['required'],
+            'email' => ['required', 'email', 'unique:users'],
+            'password' => ['required', 'min:8', 'confirmed']
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+               'status' => 400,
+               'message' => $validator->messages(),
+            ]);
+        }
+
+        return response()->json([
+            'status' => 200,
+            'message' => "Register Successfully"
+        ]);
     }
 
     // Handle user session logout

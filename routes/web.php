@@ -27,6 +27,7 @@ Route::get('/login', [AuthController::class, 'login']);
 Route::post('/login', [AuthController::class, 'authenticate']);
 Route::get('/register', [AuthController::class, 'register']);
 Route::post('/register', [AuthController::class, 'store']);
+Route::post('/registerAjax', [AuthController::class, 'storeAjax']);
 Route::get('/profile', [AuthController::class, 'changeProfile']);
 Route::post('/profile', [AuthController::class, 'updateProfile']);
 Route::get('/profile/password', [AuthController::class, 'changePassword'])->name('change_password');
