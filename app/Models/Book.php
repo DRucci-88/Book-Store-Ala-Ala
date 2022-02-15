@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * @method static create(string[] $array)
+ *
  * @method static lazy()
  * @method static orderBy(string $string, string $string1)
  * @property mixed $id
