@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Validator;
 
@@ -70,13 +70,18 @@ class AuthController extends Controller
         $validatedData['role_id'] = 2;
         $validatedData['password'] = Hash::make($validatedData['password']);
 
-        User::create($validatedData);
+        User::query()->create($validatedData);
 
         return redirect('/login')->with('successMessage', 'Register successful! Please log in.');
     }
 
     public function storeAjax(Request $req): \Illuminate\Http\JsonResponse
     {
+        // $validator = Validator::make($req->all(), [
+        //     'name' => ['required'],
+        //     'email' => ['required', 'email', 'unique:users'],
+        //     'password' => ['required', 'min:8', 'confirmed']
+        // ]);
         $validator = Validator::make($req->all(), [
             'name' => ['required'],
             'email' => ['required', 'email', 'unique:users'],
@@ -89,6 +94,8 @@ class AuthController extends Controller
                'message' => $validator->messages(),
             ]);
         }
+        // dd($validator);
+        // User::query()->create($validator);
 
         return response()->json([
             'status' => 200,

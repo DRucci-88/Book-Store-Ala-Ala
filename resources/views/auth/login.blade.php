@@ -57,28 +57,28 @@
                 x.type = 'password';
         }
 
-        $(document).on('click', '.login_btn', (e) => {
-            e.preventDefault();
-            const data = {
-                'email': $('.email').val(),
-                'password': $('.password').val(),
-            };
-            console.log(data);
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
+        // $(document).on('click', '.login_btn', (e) => {
+        //     e.preventDefault();
+        //     const data = {
+        //         'email': $('.email').val(),
+        //         'password': $('.password').val(),
+        //     };
+        //     console.log(data);
+        //     $.ajaxSetup({
+        //         headers: {
+        //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //         }
+        //     });
 
-            $.ajax({
-                type: "POST",
-                url: "",
-                dataType: "json",
-                success: (response) => {
-                    console.log(response);
-                }
-            });
-        });
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "",
+        //         dataType: "json",
+        //         success: (response) => {
+        //             console.log(response);
+        //         }
+        //     });
+        // });
 
         $(document).ready(() => {
             console.log("On Load");
