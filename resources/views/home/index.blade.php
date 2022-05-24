@@ -8,9 +8,9 @@
           <label class="col me-3">
             <input type="text" class="form-control" name="search" placeholder="Search for a book name">
           </label>
-          <button type="submit" class="btn btn-primary">Search</button>
+          <button type="submit" class="btn btn-secondary">Search</button>
         </form>
-        <a href="/" class="btn btn-primary">Clear Filter</a>
+        <a href="/" class="btn btn-info">Clear Filter</a>
 
         <div class="d-flex justify-content-between mt-3">
           @foreach ($books as $book)
@@ -20,7 +20,7 @@
                 <h5 class="card-title fw-bold mt-1" style="min-height: 3rem;">{{ $book->name }}</h5>
                 <p class="card-text mb-0">By: {{ $book->author }}</p>
                 <p class="card-text">IDR {{ $book->price }}</p>
-                <a href="/book/{{ $book->id }}{{ $prefix }}" class="btn btn-primary mt-auto">
+                <a href="/book/{{ $book->id }}{{ $prefix }}" class="btn btn-dark mt-auto">
                   <i class="bi-info-circle-fill"></i>
                   View details
                 </a>

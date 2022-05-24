@@ -16,7 +16,7 @@
                   <input type="text" class="form-control" name="name" required>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary col-sm-4">Insert</button>
+              <button type="submit" class="btn btn-secondary col-sm-4">Insert</button>
             </div>
           </div>
         </form>
@@ -34,7 +34,7 @@
                 <td>{{ $genre->name }}</td>
                 <td>
                   <div class="d-grid gap-2 d-md-block">
-                    <a href="/genre/{{ $genre->id }}/admin" class="btn btn-secondary">View Detail</a>
+                    <a href="/genre/{{ $genre->id }}/admin" class="btn btn-info">View Detail</a>
                     <form action="/genre/{{ $genre->id }}/admin" method="POST" class="d-inline-block">
                       @csrf
                       @method('DELETE')

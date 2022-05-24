@@ -33,7 +33,7 @@
                                 </label>
                             </div>
                         </div>
-                        <button class="login_btn btn btn-primary form-control mb-3">
+                        <button class="login_btn btn btn-secondary form-control mb-3">
                             <i class="bi-box-arrow-in-right me-1"></i>
                             Login
                         </button>

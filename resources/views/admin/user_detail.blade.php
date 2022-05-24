@@ -31,7 +31,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary col-sm-4">Update</button>
+                            <button type="submit" class="btn btn-secondary col-sm-4">Update</button>
                         </form>
                     </div>
                 </div>

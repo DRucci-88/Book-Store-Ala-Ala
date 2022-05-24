@@ -45,7 +45,7 @@
                             <label class="form-check-label" for="exampleCheck1">Show Password</label>
                         </div>
 
-                        <button class="register_btn btn btn-primary form-control mt-3">
+                        <button class="register_btn btn btn-secondary form-control mt-3">
                             <i class="bi-person-lines-fill me-1"></i>
                             Register
                         </button>

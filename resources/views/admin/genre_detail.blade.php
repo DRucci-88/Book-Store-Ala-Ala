@@ -16,7 +16,7 @@
                                     <input type="text" class="form-control" name="name" value="{{ $genre->name }}" required>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary col-sm-4">Update</button>
+                            <button type="submit" class="btn btn-secondary col-sm-4">Update</button>
                         </form>
                         <h3 class="mt-3">Book List</h3>
                         <table class="table">
@@ -32,7 +32,7 @@
                                         <tr>
                                             <td>{{ $book->name }}</td>
                                             <td>
-                                                <a href="/book/{{ $book->id }}/admin" class="btn btn-secondary">View Book Detail</a>
+                                                <a href="/book/{{ $book->id }}/admin" class="btn btn-info">View Book Detail</a>
                                             </td>
                                         </tr>
                                     @endforeach

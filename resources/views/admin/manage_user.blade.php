@@ -6,34 +6,34 @@
             <div class="col-md-11">
                 <table class="table">
                     <thead>
-                        <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Role</th>
-                            <th scope="col">Action</th>
-                        </tr>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Action</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        @foreach ($users as $user)
-                            <tr>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->role->name }}</td>
-                                <td>
-                                    <div class="d-grid gap-2 d-md-block">
-                                        <a href="/user/{{ $user->id }}/admin" class="btn btn-secondary">View Detail</a>
-                                        @if ($user->role->id === 2)
-                                            <form action="/user/{{ $user->id }}/admin" method="POST"
-                                                class="d-inline-block">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-danger" type="submit">Delete</button>
-                                            </form>
-                                        @endif
-                                    </div>
-                                </td>
-                            </tr>
-                        @endforeach
+                    @foreach ($users as $user)
+                        <tr>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->role->name }}</td>
+                            <td>
+                                <div class="d-grid gap-2 d-md-block">
+                                    <a href="/user/{{ $user->id }}/admin" class="btn btn-info">View Detail</a>
+                                    @if ($user->role->id === 2)
+                                        <form action="/user/{{ $user->id }}/admin" method="POST"
+                                              class="d-inline-block">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger" type="submit">Delete</button>
+                                        </form>
+                                    @endif
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>

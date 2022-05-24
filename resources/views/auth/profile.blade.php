@@ -23,9 +23,9 @@
                 </div>
               </div>
               <div class="d-grid gap-2 d-md-block">
-                <a href="/" class="btn btn-primary">Back to Home</a>
-                <button type="submit" class="btn btn-primary">Update</button>
-                <a href="/profile/password" class="btn btn-primary">Change Password</a>
+                <a href="/" class="btn btn-secondary">Back to Home</a>
+                <button type="submit" class="btn btn-secondary">Update</button>
+                <a href="/profile/password" class="btn btn-secondary">Change Password</a>
               </div>
             </div>
           </div>

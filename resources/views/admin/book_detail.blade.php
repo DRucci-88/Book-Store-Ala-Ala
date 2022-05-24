@@ -92,7 +92,7 @@
               </div>
               {{-- Hidden Input--}}
               <input value="{{ $book->cover }}" name="oldCover" hidden>
-              <button type="submit" class="btn btn-primary col-sm-4">Update</button>
+              <button type="submit" class="btn btn-secondary col-sm-4">Update</button>
             </div>
           </div>
         </form>
