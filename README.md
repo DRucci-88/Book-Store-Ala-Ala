@@ -1,6 +1,6 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-## First Setup
+# First Setup
 - Tulis di terminal **[composer install](https://stackoverflow.com/questions/41975092/install-laravel-using-composer)**
 - Buatlah copy dari .env.example menjadi .env (file .env tidak included pada github)
 - Konfigurasi file .env sesuai kebutuhan back-end 
@@ -10,3 +10,21 @@
 - Setelah table-tabel sudah terbentuk dan terisi 
 - Maka secara otomatis sudah terintegrasi dengan resource gambar pada folder (' public/books ')
 - Tulis di terminal **[php artisan serve](https://laravel.com/docs/8.x/installation#installation-via-composer)**
+
+
+
+<!-- Email:
+d.rucci.2001@gmail.com
+Website Name:
+BookStoreAlaAla
+Password:
+BookStoreAlaAlaPassword
+
+Database Name:
+id18984165_web_project
+Database Username:
+id18984165_web
+Database Host:
+localhost
+Password:
+BookStoreAlaAlaDatabase1_ -->
