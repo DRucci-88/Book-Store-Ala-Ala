@@ -4,13 +4,15 @@ This is an Websites Application that made using Laravel Framework and integratio
 
 <a href='https://bookstorealaala.000webhostapp.com/'>Click Here For Preview</a>
 
-Registered Admin:
+<p>Registered Admin:
 admin@gmail.com
 admin
+</p>
 
-Registerd Buyers:
+<p>Registerd Buyers:
 robert@gmail.com
 RobertCharis
+</p>
 
 # Features
 
