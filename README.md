@@ -1,17 +1,44 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Book Store Ala-Ala
 
-# First Setup
-- Tulis di terminal **[composer install](https://stackoverflow.com/questions/41975092/install-laravel-using-composer)**
-- Buatlah copy dari .env.example menjadi .env (file .env tidak included pada github)
-- Konfigurasi file .env sesuai kebutuhan back-end 
-- Buat database nya di xampp sesuai file .env
-- Tulis di terminal **[php artisan key:generate](https://stillat.com/blog/2016/12/07/laravel-artisan-key-command-the-keygenerate-command)**
-- Tulis di terminal **[php artisan migrate:fresh --seed](https://laravel.com/docs/8.x/seeding#running-seeders/)**
-- Setelah table-tabel sudah terbentuk dan terisi 
-- Maka secara otomatis sudah terintegrasi dengan resource gambar pada folder (' public/books ')
-- Tulis di terminal **[php artisan serve](https://laravel.com/docs/8.x/installation#installation-via-composer)**
+This is an Websites Application that made using Laravel Framework and integration with Bootstrap. It's simulate the work process of a bookstore from the point of view of admins and buyers.
 
+<a href='https://bookstorealaala.000webhostapp.com/'>Click Here For Preview</a>
 
+Registered Admin:
+admin@gmail.com
+admin
+
+Registerd Buyers:
+robert@gmail.com
+RobertCharis
+
+# Features
+
+- List of books arranged in card view, with pagintation and search by book's name.
+- Buyers (already login) can see the the details of the book, add it to the cart and make a dummy payment. 
+- Buyers can view transaction history containing list of books, quantity, price and grand total.
+- Admin can do CRUD on Book, Genre, and User.
+- Utilization of Eloquent ORM which shows a manu to many relationship (Book and Genre relation).
+- Admin and buyers can update their profile.
+
+# Dependency
+- <a href='https://laravel.com/'>Laravel 8</a>
+- <a href='https://getbootstrap.com/docs/5.0/getting-started/introduction/'>Bootstrap</a>
+
+# Basic Setup
+- Write in terminal **[composer install](https://stackoverflow.com/questions/41975092/install-laravel-using-composer)**
+- Make a copy from .env.example into .env (File .env not included). 
+- Configure file .env according to database requirements.
+- Write in terminal **[php artisan key:generate](https://stillat.com/blog/2016/12/07/laravel-artisan-key-command-the-keygenerate-command)**
+- Write in terminal **[php artisan migrate:fresh --seed](https://laravel.com/docs/8.x/seeding#running-seeders/)**
+- After table in database already filled.
+- Then it is automatically integrated with the image resource in the folder 'public/books'
+- Write on terminal **[php artisan serve](https://laravel.com/docs/8.x/installation#installation-via-composer)** to open in the browser. Default port: 8000
+
+# Our Teams
+- Norbertus Dewa Rucci
+- Darren Denisson Chandra
+- Nehemia Cecio Tanjung Jati
 
 <!-- Email:
 d.rucci.2001@gmail.com
