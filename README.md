@@ -16,11 +16,11 @@ RobertCharis
 
 # Features
 
-- List of books arranged in card view, with pagintation and search by book's name.
+- List of books arranged in card view, with pagination and search by book's name.
 - Buyers (already login) can see the the details of the book, add it to the cart and make a dummy payment. 
 - Buyers can view transaction history containing list of books, quantity, price and grand total.
 - Admin can do CRUD on Book, Genre, and User.
-- Utilization of Eloquent ORM which shows how amazing laravel is including a many to many relationship (Book and Genre relation).
+- Utilization of Eloquent ORM which shows how amazing Laravel is including a many to many relationship (Book and Genre relation).
 - Admin and buyers can update their profile.
 
 # Dependency
